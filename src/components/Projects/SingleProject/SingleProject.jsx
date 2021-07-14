@@ -10,6 +10,7 @@ const SingleProject = ({ project }) => {
           thumbnail={project.img}
           width="1024"
           height="768"
+          title="author "
         >
           {({ ref, open }) => (
             <img ref={ref} onClick={open} src={project.img} alt="img" />
