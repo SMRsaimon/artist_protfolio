@@ -66,7 +66,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <IconContext.Provider value={{ color: 'white' }}>
+      <IconContext.Provider value={{ color: '#D83A56' }}>
 
           <NavIcon to='#'>
             <FaIcons.FaBars onClick={showSidebar} />
