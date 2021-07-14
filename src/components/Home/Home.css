@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
 #home{
  height: 100vh;
 
@@ -5,4 +7,17 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+}
+.home-heading{
+
+    white-space: nowrap;
+  
+    letter-spacing: .15em;
+   color: white;
+   font-family: 'Fjalla One', sans-serif;
+}
+.home-title{
+
+    color: #e91e63;
+    /* color: green; */
 }
