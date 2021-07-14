@@ -17,7 +17,8 @@ const Nav = styled.div`
 `;
 
 const NavIcon = styled(Link)`
-  margin-left: 2rem;
+margin-left: 4rem;
+padding-top: 3rem;
   font-size: 2rem;
   height: 80px;
   width:40px;
@@ -25,6 +26,19 @@ const NavIcon = styled(Link)`
   justify-content: flex-start;
   align-items: center;
 `;
+
+const CloseNavIcon=styled(Link)`
+
+margin-left: 12rem;
+
+  font-size: 2rem;
+  height: 80px;
+  width:40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+`
 
 const SidebarNav = styled.nav`
   background: #15171c;
@@ -54,7 +68,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <IconContext.Provider value={{ color: 'red' }}>
+      <IconContext.Provider value={{ color: '#D83A56' }}>
 
           <NavIcon to='#'>
             <FaIcons.FaBars onClick={showSidebar} />
@@ -62,9 +76,11 @@ const Sidebar = () => {
         
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
-            <NavIcon to='#'>
-              <AiIcons.AiOutlineClose onClick={showSidebar} />
-            </NavIcon>
+         <CloseNavIcon to="#">
+         <AiIcons.AiOutlineClose onClick={showSidebar} />
+           </CloseNavIcon>
+              
+         
             {SidebarData.map((item, index) => {
               return <SubMenu showSidebar={showSidebar}  item={item} key={index} />;
             })}
