@@ -52,8 +52,6 @@ const SidebarNav = styled.nav`
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
   transition-property: left;
   transition-duration: 1s;
- 
-
   z-index: 10;
 `;
 
