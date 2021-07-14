@@ -8,35 +8,35 @@ export const SidebarData = [
   {
     title: 'Projects',
     path: '/projects',
-    icon: <AiIcons.AiFillHome />,
+   
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
 
     subNav: [
       {
-        title: 'Projects1',
-        path: '/projects/projects1',
+        title: 'In Search of Lost Tune',
+        path: '/projects/In_Search_of_Lost_Tune',
         icon: <IoIcons.IoIosPaper />
       },
       {
-        title: 'Projects2',
-        path: '/projects/projects2',
+        title: 'The Name of my City',
+        path: '/projects/The_Name_of_my_City',
         icon: <IoIcons.IoIosPaper />
       },
       {
-        title: 'Projects3',
-        path: '/projects/projects3',
+        title: 'Dhaka',
+        path: '/projects/dhaka',
         icon: <IoIcons.IoIosPaper />
       },
       {
-        title: 'Projects4',
-        path: '/projects/projects4',
+        title: 'Joldash',
+        path: '/projects/Joldash',
         icon: <IoIcons.IoIosPaper />
       }
       ,
       {
-        title: 'Projects5',
-        path: '/projects/projects5',
+        title: 'Counting the days',
+        path: '/projects/Counting_the_days',
         icon: <IoIcons.IoIosPaper />
       }
     ]
@@ -50,14 +50,14 @@ export const SidebarData = [
 
     subNav: [
       {
-        title: 'Works1',
-        path: '/works/works1',
+        title: 'Portfolio',
+        path: '/works/portfolio',
         icon: <IoIcons.IoIosPaper />,
         cName: 'sub-nav'
       },
       {
-        title: 'Works2',
-        path: '/works/works2',
+        title: 'Sonali Bag',
+        path: '/works/sonali_bag',
         icon: <IoIcons.IoIosPaper />,
         cName: 'sub-nav'
       },
