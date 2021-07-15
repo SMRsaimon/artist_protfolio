@@ -80,7 +80,7 @@ export const SidebarData = [
   },
   {
     title: 'Contact',
-    path: '/contact',
+    path: '/reyad_abedin/contract',
     icon: <IoIcons.IoMdPeople />
   },
   {
