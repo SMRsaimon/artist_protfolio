@@ -2,10 +2,12 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 const ContractForm = () => {
-     const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
-
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
 
   return (
     <div className="contact_form_container pb-5">
@@ -16,32 +18,33 @@ const ContractForm = () => {
             type="text"
             id="contact_form_name"
             className="contact_form_name input_field"
-            placeholder="Your Name" {...register("name", {required: true, maxLength: 80})} 
+            placeholder="Your Name"
+            {...register("name", { required: true, maxLength: 80 })}
           />
 
           <input
             type="text"
             id="contact_form_email"
             className="contact_form_email input_field"
-            placeholder="Your Email" {...register("email", {required: true, pattern: /^\S+@\S+$/i})}
+            placeholder="Your Email"
+            {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
           />
-           
 
           <input
             type="tel"
             id="contact_form_phone"
             className="contact_form_phone input_field"
-            placeholder="Your Mobile number" {...register("number", { maxLength: 12})}
+            placeholder="Your Mobile number"
+            {...register("number", { maxLength: 12 })}
           />
         </div>
         <div className="contact_form_text">
           <textarea
             id="contact_form_message"
             className="text_field contact_form_message"
-           
             rows="4"
             placeholder="Message"
-            {...register("message", {required: true})} 
+            {...register("message", { required: true })}
           ></textarea>
         </div>
         <div className="contact_form_button">

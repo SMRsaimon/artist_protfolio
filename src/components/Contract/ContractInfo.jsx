@@ -26,4 +26,3 @@ const ContractInfo = () => {
 
 export default ContractInfo;
 
-//   <ImWhatsapp/>

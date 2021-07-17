@@ -66,16 +66,12 @@ export const SidebarData = [
         icon: <IoIcons.IoIosPaper />,
         cName: 'sub-nav'
       },
-      {
-        title: 'Works3',
-        path: '/works/works3',
-        icon: <IoIcons.IoIosPaper />
-      }
+     
     ]
   },
   {
-    title: 'Bio',
-    path: '/bio',
+    title: 'About',
+    path: '/reyad_abedin/about',
     icon: <FaIcons.FaCartPlus />
   },
   {

@@ -7,6 +7,7 @@ import ProjectContainer from "./components/Projects/ProjectContainer/ProjectCont
 import { projectData } from "./resource/projectData";
 import { useState } from "react";
 import Contract from "./components/Contract/Contract";
+import About from "./components/About/About";
 
 function App() {
 
@@ -44,6 +45,9 @@ function App() {
         </Route>
         <Route exact path="/reyad_abedin/contract" >
           <Contract/>
+        </Route>
+        <Route exact path="/reyad_abedin/about" >
+          <About/>
         </Route>
       </Switch>
     </Router>
