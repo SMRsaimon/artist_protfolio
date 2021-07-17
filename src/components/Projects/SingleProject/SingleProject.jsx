@@ -12,8 +12,8 @@ const SingleProject = ({ project }) => {
         
           original={project.img}
           thumbnail={project.img}
-          width="1200"
-          height="1000"
+          width={project?.Width ?project.Width: "1000" }
+          height={project?.Height?project.Height: "700" }
           title={`Copyright © ${new Date().getFullYear()} all rights reserved by  ${project.title}`}
         >
           {({ ref, open }) => (

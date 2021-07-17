@@ -1,7 +1,7 @@
 import React from "react";
 import "./About.css";
 import Sidebar from "../Navigation/Sidebar";
-import profilePic from "../../resource/img/bio-img/Bio Photo.jpg";
+import profilePic from "../../resource/img/bio-img/BioPhoto.jpg";
 import {
   IoLogoFacebook,
   IoLogoLinkedin,
@@ -52,6 +52,31 @@ const About = () => {
          Winner), Ian Parry Scholarship, Format photography Festival,
          Format Magazine, Sunday Times Magazine, etc.`,
     },
+    {
+      P: `  Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+        tempora quas voluptatem minima fugiat doloremque officia. Enim
+        est magnam voluptate necessitatibus cum hic beatae debitis
+        expedita omnis dignissimos, et at rem laborum amet, unde,
+        exercitationem magni quis facilis nisi consectetur nulla ad
+        fugit quas. Est, officia labore dolor hic distinctio esse
+        neque praesentium recusandae repudiandae. Perspiciatis natus
+        maiores ut mollitia maxime consectetur ipsam cupiditate
+        nostrum iure, rem doloremque sunt? At voluptates praesentium,
+        quasi ipsa omnis molestias? Aut, eaque. Vel, similique! Quam
+        culpa suscipit quae architecto soluta voluptas sed nobis? Quae
+        obcaecati, necessitatibus aperiam unde exercitationem
+        consequuntur magnam impedit saepe inventore.`,
+    },
+    {
+        P: `  Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+          tempora quas voluptatem minima fugiat doloremque officia. Enim
+          est magnam voluptate necessitatibus cum hic beatae debitis
+          expedita omnis dignissimos, et at rem laborum amet, unde,
+          exercitationem magni quis facilis nisi consectetur nulla ad
+          fugit quas. Est, officia labore dolor hic distinctio esse
+         `,
+         heading:"this is heading "
+      },
   ];
   return (
     <>
@@ -84,28 +109,24 @@ const About = () => {
             </div>
             <div className="col-md-6">
               <div className="content-container">
-                {bioContent.length <= 3 &&
-                  bioContent.map((x, index) => <p key={index}>{x.P}</p>)}
+                {bioContent.length <= 3
+                  ? bioContent.map((x, index) => <p key={index}>{x.P}</p>)
+                  : bioContent
+                      .slice(0, 3)
+                      .map((x, index) => <p key={index}>{x.P}</p>)}
               </div>
             </div>
 
-            <div className="col-md-12">
+            <div className="col-md-6">
               <div className="content-container">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
-                  tempora quas voluptatem minima fugiat doloremque officia. Enim
-                  est magnam voluptate necessitatibus cum hic beatae debitis
-                  expedita omnis dignissimos, et at rem laborum amet, unde,
-                  exercitationem magni quis facilis nisi consectetur nulla ad
-                  fugit quas. Est, officia labore dolor hic distinctio esse
-                  neque praesentium recusandae repudiandae. Perspiciatis natus
-                  maiores ut mollitia maxime consectetur ipsam cupiditate
-                  nostrum iure, rem doloremque sunt? At voluptates praesentium,
-                  quasi ipsa omnis molestias? Aut, eaque. Vel, similique! Quam
-                  culpa suscipit quae architecto soluta voluptas sed nobis? Quae
-                  obcaecati, necessitatibus aperiam unde exercitationem
-                  consequuntur magnam impedit saepe inventore.
-                </p>
+                {bioContent.length >= 4 &&
+                  bioContent.slice(3, bioContent.length).map((x, index) => (
+                    <>
+                      {x.heading && <h3>{x.heading}</h3>}
+
+                      <p key={index}>{x.P}</p>
+                    </>
+                  ))}
               </div>
             </div>
           </div>

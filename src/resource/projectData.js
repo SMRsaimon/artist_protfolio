@@ -84,7 +84,7 @@ export const inSearchOf=
     {fileName:"inSearchOf", id:2, img: img2, title:"REYAD ABEDIN"}, 
     {fileName:"inSearchOf", id:1, img: img1, title:"REYAD ABEDIN"}, 
     {fileName:"inSearchOf", id:3, img: img3, title:"REYAD ABEDIN"}, 
-    {fileName:"inSearchOf", id:4, img: img4, title:"REYAD ABEDIN"}, 
+    {fileName:"inSearchOf", id:4, img: img4, title:"REYAD ABEDIN",Width:900, Height:1200}, 
     {fileName:"inSearchOf", id:5, img: img5, title:"REYAD ABEDIN"}, 
     {fileName:"inSearchOf", id:6, img: img6, title:"REYAD ABEDIN"}, 
     {fileName:"inSearchOf", id:7, img: img7, title:"REYAD ABEDIN"}, 
@@ -96,11 +96,11 @@ export const inSearchOf=
     {fileName:"inSearchOf", id:13, img: img13, title:"REYAD ABEDIN"}, 
     {fileName:"inSearchOf", id:14, img: img14, title:"REYAD ABEDIN"}, 
     {fileName:"inSearchOf", id:15, img: img15, title:"REYAD ABEDIN"}, 
-    {fileName:"inSearchOf", id:16, img: img16, title:"REYAD ABEDIN"}, 
+    {fileName:"inSearchOf", id:16, img: img16, title:"REYAD ABEDIN",Width:900, Height:1200}, 
     {fileName:"inSearchOf", id:17, img: img17, title:"REYAD ABEDIN"}, 
     {fileName:"inSearchOf", id:18, img: img18, title:"REYAD ABEDIN"}, 
     {fileName:"inSearchOf", id:19, img: img19, title:"REYAD ABEDIN"}, 
-    {fileName:"inSearchOf", id:20, img: img20, title:"REYAD ABEDIN"}, 
+    {fileName:"inSearchOf", id:20, img: img20, title:"REYAD ABEDIN",Width:900, Height:1200}, 
 ]
 export const  Dhaka=[
 
@@ -167,7 +167,7 @@ export const SonaliBeg=
     {fileName:"SonaliBeg", id:74, img: S_img4, title:"REYAD ABEDIN"}, 
     {fileName:"SonaliBeg", id:75, img: S_img5, title:"REYAD ABEDIN"}, 
     {fileName:"SonaliBeg", id:76, img: S_img6, title:"REYAD ABEDIN"}, 
-    {fileName:"SonaliBeg", id:77, img: S_img7, title:"REYAD ABEDIN"}, 
+    {fileName:"SonaliBeg", id:77, img: S_img7, title:"REYAD ABEDIN" ,Width:900, Height:1200}, 
     {fileName:"SonaliBeg", id:78, img: S_img8, title:"REYAD ABEDIN"}, 
     {fileName:"SonaliBeg", id:79, img: S_img9, title:"REYAD ABEDIN"}, 
 
