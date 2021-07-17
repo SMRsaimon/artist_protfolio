@@ -1,0 +1,20 @@
+#about {
+  background: black;
+  padding-bottom: 70px;
+
+  color: rgba(255, 255, 255, 0.767);
+}
+
+.about-img-container {
+  width: 300px;
+  height: auto;
+}
+.about-social-icon .icon svg {
+  width: 53px;
+  height: 33px;
+  fill: rgb(216, 58, 86)
+}
+.about-social-icon  {
+    margin-right: 30px;
+    margin-top: 20px;
+}
