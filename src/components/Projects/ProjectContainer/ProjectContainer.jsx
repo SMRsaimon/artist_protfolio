@@ -8,6 +8,7 @@ import { CustomGallery, DefaultLayout } from "react-photoswipe-gallery";
 import { useRef } from "react";
 import PhotoSwipeUI_Default from "photoswipe/dist/photoswipe-ui-default";
 import Lightbox from "react-lightbox-component";
+import Footer from "../../Footer/Footer";
 
 const ProjectContainer = ({ projectImg, title }) => {
   const layoutRef = useRef();
@@ -33,6 +34,7 @@ const ProjectContainer = ({ projectImg, title }) => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

@@ -9,12 +9,10 @@
   width: 300px;
   height: auto;
 }
-.about-social-icon .icon svg {
-  width: 53px;
-  height: 33px;
-  fill: rgb(216, 58, 86)
-}
-.about-social-icon  {
-    margin-right: 30px;
-    margin-top: 20px;
+.download-resumr{
+
+    white-space: nowrap;
+    letter-spacing: .8px;
+   color: rgb(216, 58, 86);
+    font-family: 'Fjalla One', sans-serif;
 }

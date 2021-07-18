@@ -2,27 +2,12 @@ import React from "react";
 import "./About.css";
 import Sidebar from "../Navigation/Sidebar";
 import profilePic from "../../resource/img/bio-img/BioPhoto.jpg";
-import {
-  IoLogoFacebook,
-  IoLogoLinkedin,
-  IoLogoInstagram,
-} from "react-icons/io";
+import SocialLink from "../SocialLink/SocialLink";
+import Footer from "../Footer/Footer";
+
 
 const About = () => {
-  const socialLink = [
-    {
-      link: "https://www.facebook.com/ReyadAbedin1",
-      icon: <IoLogoFacebook />,
-    },
-    {
-      link: "https://www.linkedin.com/in/reyad-abedin-3321647b/",
-      icon: <IoLogoLinkedin />,
-    },
-    {
-      link: "https://www.instagram.com/reyad_abedin/",
-      icon: <IoLogoInstagram />,
-    },
-  ];
+ 
 
   const bioContent = [
     {
@@ -90,20 +75,7 @@ const About = () => {
               <div className="about-img-container py-3 mb-5 ">
                 <img src={profilePic} class="img-thumbnail" alt="..."></img>
                 <div className="d-flex justify-content-center">
-                  <ul className="d-flex ms-1 about-social-icon">
-                    {socialLink.map((x, index) => (
-                      <li key={index}>
-                        <a
-                          target="_blank"
-                          rel="noreferrer"
-                          className="icon"
-                          href={x.link}
-                        >
-                          {x.icon}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+                   <SocialLink/>
                 </div>
               </div>
             </div>
@@ -115,6 +87,7 @@ const About = () => {
                       .slice(0, 3)
                       .map((x, index) => <p key={index}>{x.P}</p>)}
               </div>
+              <a  className="btn btn-outline-light p-2 download-resumr" target="_blanck" href="#"> Download Resume </a>
             </div>
 
             <div className="col-md-6">
@@ -132,6 +105,7 @@ const About = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
