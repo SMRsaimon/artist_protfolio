@@ -25,16 +25,11 @@ function App() {
   const portfolio = projectImg.filter((x) => x.fileName === "portfolio");
   const print = projectImg.filter((x) => x.fileName === "print");
 
-
-
-const printText={
-  
-  heading:"Print",
- text: "If you are looking for any image/ prints, feel free to contact me for details information, sizes and pricing." 
-  ,
-  text2:"Worldwide Shipping Available"
- 
-}
+  const printText = {
+    heading: "Print",
+    text: "If you are looking for any image/ prints, feel free to contact me for details information, sizes and pricing.",
+    text2: "Worldwide Shipping Available",
+  };
   return (
     <Router>
       <Switch>
@@ -44,49 +39,40 @@ const printText={
             title="In Search of Lost Tune"
             projectImg={inSearchOf}
           />
-         
         </Route>
         <Route exact path="/projects/The_Name_of_my_City">
           <ProjectContainer
             title="The Name of my City is Dust, Smoke and, Life"
             projectImg={theNameOfCity}
           />
-       
         </Route>
         <Route exact path="/projects/dhaka">
           <ProjectContainer title="Dhaka" projectImg={Dhaka} />
-       
         </Route>
         <Route exact path="/projects/Joldash">
           <ProjectContainer title="Joldash" projectImg={Joldash} />
-    
         </Route>
         <Route exact path="/projects/Counting_the_days">
           <ProjectContainer
             title="Counting the day"
             projectImg={countingTheDays}
           />
-          
         </Route>
 
         <Route exact path="/works/sonali_bag">
           <ProjectContainer title="Sonali Beg" projectImg={SonaliBeg} />
-          
         </Route>
 
         <Route exact path="/works/portfolio">
           <ProjectContainer title="Portfolio" projectImg={portfolio} />
-       
         </Route>
         <Route exact path="/print">
           <ProjectContainer title={printText} projectImg={print} />
-       
         </Route>
-
 
         <Route exact path="/reyad_abedin/contract">
           <Contract />
-          <Footer/>
+          <Footer />
         </Route>
 
         <Route exact path="/reyad_abedin/about">
