@@ -122,7 +122,7 @@ const About = () => {
                 {bioContent.length >= 4 &&
                   bioContent.slice(3, bioContent.length).map((x, index) => (
                     <>
-                      {x.heading && <h3>{x.heading}</h3>}
+                      {x.heading && <h3 className="text-capitalize">{x.heading}</h3>}
 
                       <p key={index}>{x.P}</p>
                     </>
