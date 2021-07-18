@@ -23,7 +23,18 @@ function App() {
     (x) => x.fileName === "countingTheDays"
   );
   const portfolio = projectImg.filter((x) => x.fileName === "portfolio");
+  const print = projectImg.filter((x) => x.fileName === "print");
 
+
+
+const printText={
+  
+  heading:"Print",
+ text: "If you are looking for any image/ prints, feel free to contact me for details information, sizes and pricing." 
+  ,
+  text2:"Worldwide Shipping Available"
+ 
+}
   return (
     <Router>
       <Switch>
@@ -67,6 +78,11 @@ function App() {
           <ProjectContainer title="Portfolio" projectImg={portfolio} />
        
         </Route>
+        <Route exact path="/print">
+          <ProjectContainer title={printText} projectImg={print} />
+       
+        </Route>
+
 
         <Route exact path="/reyad_abedin/contract">
           <Contract />
