@@ -21,3 +21,12 @@
 .ResponsiveMasonry {
   margin-left:  200px ;
 }
+@media (max-width: 768px){
+    .ResponsiveMasonry{
+        margin-left:  0 ;
+
+    }
+    
+
+
+}
