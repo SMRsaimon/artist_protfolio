@@ -9,8 +9,10 @@
   width: 300px;
   height: auto;
 }
-.download-resumr{
+.download-resume{
 
+
+    margin:30px 0px ;
     white-space: nowrap;
     letter-spacing: .8px;
    color: rgb(216, 58, 86);

@@ -1,30 +1,23 @@
-
-.product-container{
-
-background-color: #e9e4e4dc;
-
-    
+.product-container {
+  background-color: #e9e4e4dc;
 }
-.project-title{
-
-  
+.project-title {
 }
 
-.print-img-container img{
- width: 200px;
-
+.print-img-container img {
+  width: 200px;
 }
-.comming-soon-text{
-    padding-bottom: 50px;
-
+.comming-soon-text {
+  padding-bottom: 50px;
 }
 
-.comingSoon-img,  .onGoing-img{
-
-    width:300px;
-    height:250px;
+.comingSoon-img,
+.onGoing-img {
+  width: 300px;
+  height: 250px;
 }
-.onGoing-img{
-
+.onGoing-img {
 }
-
+.ResponsiveMasonry {
+  margin-left:  200px ;
+}

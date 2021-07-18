@@ -12,6 +12,7 @@ import comingSoon from "../../../resource/img/print-img/comingsoon2.jpg";
 import onGoing from "../../../resource/img/print-img/ongoing.jpg";
 import Footer from "../../Footer/Footer";
 import { Image } from "react-bootstrap";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 const ProjectContainer = ({ projectImg, title }) => {
   const layoutRef = useRef();
@@ -36,35 +37,35 @@ const ProjectContainer = ({ projectImg, title }) => {
 
           <div className="row d-flex justify-content-center">
             <CustomGallery layoutRef={layoutRef} ui={PhotoSwipeUI_Default}>
-              {projectImg.length > 0 ? (
-                projectImg.map((x) => <SingleProject project={x} key={x.id} />)
-              ) : (
-                <>
-                 <h4 className="comming-soon-text text-success">Comming Soon......</h4>
-                  <img
-                    className="comingSoon-img"
-                    src={comingSoon}
-                    alt=""
-                    srcset=""
-                  />
-                 
-                </>
-              )}
-              {projectImg.length <= 5 && projectImg.length !== 0 && (
-                <>
-                  <h4 className="text-center text-success p-5">
-                    On going......
-                  </h4>
-                  <div className="col-md-12 d-flex justify-content-center">
-                    <img
-                      className="  onGoing-img"
-                      src={onGoing}
-                      alt=""
-                      srcset=""
-                    />
-                  </div>
-                </>
-              )}
+              <ResponsiveMasonry
+                columnsCountBreakPoints={{ 350: 1, 750: 2, 900:3, 1400:4 }}
+                className="ResponsiveMasonry"
+              >
+                <Masonry  >
+                  {projectImg.length > 0 ? (
+                    projectImg.map((x) => (
+                      <SingleProject project={x} key={x.id} />
+                    ))
+                  ) : (
+                    <>
+                      <h4 className="comming-soon-text text-success">
+                        Comming Soon......
+                      </h4>
+                     
+                    </>
+                  )}
+                  {projectImg.length <= 5 && projectImg.length !== 0 && (
+                    <>
+                      <h4 className="text-center text-success p-5">
+                        On going......
+                      </h4>
+                      <div className="col-md-12 d-flex justify-content-center">
+                       
+                      </div>
+                    </>
+                  )}
+                </Masonry>
+              </ResponsiveMasonry>
             </CustomGallery>
             <DefaultLayout
               shareButton={false}

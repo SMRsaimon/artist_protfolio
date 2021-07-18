@@ -87,7 +87,7 @@ const About = () => {
                       .slice(0, 3)
                       .map((x, index) => <p key={index}>{x.P}</p>)}
               </div>
-              <a  className="btn btn-outline-light p-2 download-resumr" target="_blanck" href="#"> Download Resume </a>
+              <a  className="btn btn-outline-light p-2 download-resume" target="_blanck" href="#"> Download Resume </a>
             </div>
 
             <div className="col-md-6">
