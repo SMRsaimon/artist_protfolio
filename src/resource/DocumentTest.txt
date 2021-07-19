@@ -1,4 +1,0 @@
-1. added slider ,
-2. added gerry resize 
-3. remove unusiall img 
-

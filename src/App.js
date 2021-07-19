@@ -1,5 +1,7 @@
+import "bootstrap/dist/css/bootstrap.css";
+import "./adminDeshbord/assets/css/demo.css";
+import "./adminDeshbord/assets/scss/now-ui-dashboard.scss";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import ProjectContainer from "./components/Projects/ProjectContainer/ProjectContainer";
@@ -8,6 +10,7 @@ import { useEffect, useState } from "react";
 import Contract from "./components/Contract/Contract";
 import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
+import AdminLayout from "./adminDeshbord/layouts/Admin"
 
 function App() {
   const [projectImg, setProjectImg] = useState(projectData);
@@ -78,6 +81,8 @@ function App() {
         <Route exact path="/reyad_abedin/about">
           <About />
         </Route>
+      <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+      
       </Switch>
     </Router>
   );

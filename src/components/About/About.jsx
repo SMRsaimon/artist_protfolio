@@ -62,14 +62,16 @@ const About = () => {
          `,
          heading:"this is heading "
       },
-  ];
+  ]; 
   return (
     <>
       <div id="about" className="container-fluid">
         <Sidebar />
 
         <div className="container pt-5">
-          <h1>Bio</h1>
+        <h1 className="text-center pb-3 text-md-left  home-heading text-uppercase">
+                Reyad Abedin
+              </h1>
           <div className="row">
             <div className="col-md-6 d-flex justify-content-center">
               <div className="about-img-container py-3 mb-5 ">
