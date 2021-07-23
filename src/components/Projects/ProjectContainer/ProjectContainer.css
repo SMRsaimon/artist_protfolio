@@ -2,6 +2,10 @@
   background-color: #e9e4e4dc;
 }
 .project-title {
+
+  letter-spacing: .8px;
+ color: rgb(216, 58, 86);
+  font-family: 'Fjalla One', sans-serif;
 }
 
 .print-img-container img {
@@ -21,6 +25,7 @@
 .ResponsiveMasonry {
   margin-left:  200px ;
 }
+
 @media (max-width: 768px){
     .ResponsiveMasonry{
         margin-left:  0 ;

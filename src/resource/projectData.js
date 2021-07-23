@@ -115,6 +115,14 @@ export const inSearchOf = [
   { fileName: "inSearchOf", id: 12, img: img12, title: "REYAD ABEDIN" },
   { fileName: "inSearchOf", id: 13, img: img13, title: "REYAD ABEDIN" },
   { fileName: "inSearchOf", id: 14, img: img14, title: "REYAD ABEDIN" },
+  {
+    fileName: "inSearchOf",
+    id: 20,
+    img: img20,
+    title: "REYAD ABEDIN",
+    Width: 900,
+    Height: 1200,
+  },
   { fileName: "inSearchOf", id: 15, img: img15, title: "REYAD ABEDIN" },
   {
     fileName: "inSearchOf",
@@ -127,14 +135,7 @@ export const inSearchOf = [
   { fileName: "inSearchOf", id: 17, img: img17, title: "REYAD ABEDIN" },
   { fileName: "inSearchOf", id: 18, img: img18, title: "REYAD ABEDIN" },
   { fileName: "inSearchOf", id: 19, img: img19, title: "REYAD ABEDIN" },
-  {
-    fileName: "inSearchOf",
-    id: 20,
-    img: img20,
-    title: "REYAD ABEDIN",
-    Width: 900,
-    Height: 1200,
-  },
+ 
 ];
 export const Dhaka = [
   { fileName: "Dhaka", id: 21, img: D_img1, title: "REYAD ABEDIN" },

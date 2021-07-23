@@ -19,5 +19,16 @@
 .home-title{
 
     color: white;
-    /* color: green; */
+   
+}
+
+/* Drop-Down menu responsive */
+@media (max-width: 768px){
+  
+    .cHgOIG{
+      margin-left: 1rem !important;
+    }
+    
+
+
 }

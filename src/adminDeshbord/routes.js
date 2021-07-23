@@ -1,5 +1,5 @@
 import Dashboard from "./views/Dashboard";
-import Notifications from "./views/Notifications";
+import About from "./views/About/About";
 import UserPage from "./views/UserPage";
 import TableList from "./views/TableList";
 
@@ -16,10 +16,10 @@ var dashRoutes = [
 
 
   {
-    path: "/notifications",
-    name: "Notifications",
+    path: "/About",
+    name: "About",
     icon: "ui-1_bell-53",
-    component: Notifications,
+    component: About,
     layout: "/admin",
   },
   {

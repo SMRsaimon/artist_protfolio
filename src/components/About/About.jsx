@@ -39,18 +39,7 @@ const About = () => {
     },
     {
       P: `  Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
-        tempora quas voluptatem minima fugiat doloremque officia. Enim
-        est magnam voluptate necessitatibus cum hic beatae debitis
-        expedita omnis dignissimos, et at rem laborum amet, unde,
-        exercitationem magni quis facilis nisi consectetur nulla ad
-        fugit quas. Est, officia labore dolor hic distinctio esse
-        neque praesentium recusandae repudiandae. Perspiciatis natus
-        maiores ut mollitia maxime consectetur ipsam cupiditate
-        nostrum iure, rem doloremque sunt? At voluptates praesentium,
-        quasi ipsa omnis molestias? Aut, eaque. Vel, similique! Quam
-        culpa suscipit quae architecto soluta voluptas sed nobis? Quae
-        obcaecati, necessitatibus aperiam unde exercitationem
-        consequuntur magnam impedit saepe inventore.`,
+     `
     },
     {
         P: `  Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
@@ -61,6 +50,14 @@ const About = () => {
           fugit quas. Est, officia labore dolor hic distinctio esse
          `,
          heading:"this is heading "
+      },
+      {
+        P: `  Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+       `,
+      },
+      {
+        P: `  Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+       `,
       },
   ]; 
   return (
