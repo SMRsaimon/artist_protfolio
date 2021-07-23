@@ -1,4 +1,5 @@
 import React from "react";
+import "./About.css"
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -7,8 +8,6 @@ import Swal from "sweetalert2";
 import SubmitButton from "../SubmitButton/SubmitButton";
 
 const AboutPersonalDataForm = () => {
-
-
   const [aboutDetails, setAboutDetails] = useState({});
   const [value, setValue] = useState(false);
   const {
@@ -19,13 +18,9 @@ const AboutPersonalDataForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
- 
-
   const onSubmit = (data) => {
+    console.log(data);
 
-    console.log(data)
- 
-    
     axios
       .post("http://localhost:8000/api/expenses/", data)
       .then((res) => console.log(res.data));
@@ -49,7 +44,8 @@ const AboutPersonalDataForm = () => {
             className="form-control"
             id="exampleFormControlInput1"
             placeholder="Your Name "
-            {...register("name", { required: false })}
+            {...register("name", { required: true })}
+            required
           />
         </div>
         <div className="mb-3">
@@ -62,7 +58,8 @@ const AboutPersonalDataForm = () => {
             className="form-control"
             id="exampleFormControlInput2"
             placeholder="Your Email  "
-            {...register("email", { required: false })}
+            {...register("email", { required: true })}
+            required
           />
         </div>
         <div className="mb-3">
@@ -75,7 +72,8 @@ const AboutPersonalDataForm = () => {
             className="form-control"
             id="exampleFormControlInput3"
             placeholder="Your Phone Number "
-            {...register("PhoneNumber", { required: false })}
+            {...register("PhoneNumber", { required: true })}
+            required
           />
         </div>
         <div className="mb-3">
@@ -88,7 +86,8 @@ const AboutPersonalDataForm = () => {
             className="form-control"
             id="exampleFormControlInput4"
             placeholder="Your Whats App Number "
-            {...register("WhatsAppNumber", { required: false })}
+            {...register("WhatsAppNumber", { required: true })}
+            required
           />
         </div>
         <div className="mb-3">
@@ -102,9 +101,9 @@ const AboutPersonalDataForm = () => {
             id="exampleFormControlInput5"
             placeholder="Put your facebook link "
             {...register("facebook", {
-              required: false,
-             
+              required: true,
             })}
+            required
           />
           {errors.facebook && (
             <span className="text-danger">Enter valide URl</span>
@@ -121,14 +120,14 @@ const AboutPersonalDataForm = () => {
             id="exampleFormControlInput6"
             placeholder="Put your linkedIn link "
             {...register("linkedIn", {
-              required: false,
-             
+              required: true,
             })}
+            required
           />
         </div>
         <div className="mb-3">
           <label className="form-label" for="exampleFormControlInput6">
-          Instagram Link :
+            Instagram Link :
           </label>
 
           <input
@@ -137,11 +136,33 @@ const AboutPersonalDataForm = () => {
             id="exampleFormControlInput6"
             placeholder="Put your Instagram link "
             {...register("Instagram", {
-              required: false,
-             
+              required: true,
             })}
+            required
           />
         </div>
+        <div className="mb-3">
+          <label className="form-label" for="exampleFormControlInput7">
+            Resume Google Drive Link :
+          </label>
+
+          <input
+            type="url"
+            className="form-control"
+            id="exampleFormControlInput7"
+            placeholder="resume  link "
+            {...register("resume", {
+              required: true,
+            })}
+            required
+          />
+        </div>
+        <div className="mb-3">
+        <label className="form-label" for="file ">Upload  Your Img </label>
+          <input type="file" name="file" id="file" className="form-control"  />
+          
+        </div>
+      
 
         <SubmitButton text="Save" />
       </form>
