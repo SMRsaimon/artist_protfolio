@@ -56,8 +56,9 @@ function Sidebar(props) {
                   className="nav-link"
                   activeClassName="active"
                 >
-                  
-                  <p>{prop.name}</p>
+                 <span>{prop.icon}</span> 
+                 {"  "}
+                  <span>{prop.name}</span>
                 </NavLink>
               </li>
             );

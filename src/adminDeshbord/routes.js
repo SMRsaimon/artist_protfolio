@@ -1,7 +1,13 @@
 import Dashboard from "./views/Dashboard";
 import About from "./views/About/About";
 import UserPage from "./views/UserPage";
-import TableList from "./views/TableList";
+import Projects from "./views/Projects/Projects";
+
+// React icon 
+import { IoQrCodeSharp } from 'react-icons/io5';
+import { FcAbout } from 'react-icons/fc';
+import { AiFillProject } from 'react-icons/ai';
+
 
 
 
@@ -9,7 +15,7 @@ var dashRoutes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    icon: "design_app",
+    icon: <IoQrCodeSharp/>,
     component: Dashboard,
     layout: "/admin",
   },
@@ -18,22 +24,22 @@ var dashRoutes = [
   {
     path: "/About",
     name: "About",
-    icon: "ui-1_bell-53",
+    icon: <FcAbout/>,
     component: About,
     layout: "/admin",
   },
   {
     path: "/user-page",
     name: "User Profile",
-    icon: "users_single-02",
+    icon: <IoQrCodeSharp/>,
     component: UserPage,
     layout: "/admin",
   },
   {
-    path: "/extended-tables",
-    name: "Table List",
-    icon: "files_paper",
-    component: TableList,
+    path: "/projects",
+    name: "Projects",
+    icon: <AiFillProject/>,
+    component: Projects,
     layout: "/admin",
   },
 
