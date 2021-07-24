@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 
 import { useState } from "react";
@@ -16,16 +17,33 @@ const ProjectImage = () => {
   };
 
   console.log(images);
-  const onSubmit = (data) => {};
+  const onSubmit = (data) => {
+
+    let formData = new FormData();
+
+    for (const key of Object.keys(images)) {
+        formData.append('imagesArray', images[key])
+    }
+    axios.post("http://localhost:8000/endpoint/multi-images-upload", formData, {
+    }).then(response => {
+        console.log((response.data))
+    })
+
+  };
   return (
     <div className="card p-4">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-3">
           <select class="form-select" aria-label="Default select example">
             <option selected>Select Images Folder</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="1">In Search Of</option>
+            <option value="2">Dhaka</option>
+            <option value="3">The Name Of City</option>
+            <option value="3">Joldash</option>
+            <option value="3">SonaliBeg</option>
+            <option value="3">Counting The Days</option>
+            <option value="3">Portfolio</option>
+            <option value="3">Print</option>
           </select>
         </div>
         <div className="mb-3">
@@ -58,6 +76,7 @@ const ProjectImage = () => {
             <BsCloudUpload /> Upload Photo
           </label>
         </div>
+        <button className="btn btn-outline-primary" type="submit">Save</button>
       </form>
     </div>
   );

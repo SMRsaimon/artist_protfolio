@@ -9,10 +9,6 @@ import Swal from "sweetalert2";
 import SubmitButton from "../SubmitButton/SubmitButton";
 
 const AboutPersonalDataForm = () => {
-  const [aboutDetails, setAboutDetails] = useState({});
-  const [value, setValue] = useState(false);
-
-  const [profileImg,setProfileImg]=useState({})
   const [img, setImg ]=useState({})
   const {
     register,
@@ -21,24 +17,31 @@ const AboutPersonalDataForm = () => {
   } = useForm();
 
 
+const hendelImage=(e)=>{
 
-// handel Profile image
-  const hendelImageUploaded = (e) => {
-    const img=e.target.files[0]
-    const imageData = new FormData();
-    imageData.append("image",img )
-    setProfileImg(imageData)
-    setImg(img)
-  
-  };
+   const img=e.target.files[0]
+   setImg(img)
+
+}
  
   const onSubmit = (data) => {
-
-    data.profileImg=profileImg
+     let fromData= new FormData()
+     fromData.append("profileImg", img)
+     fromData.append("name", data.name)
+     fromData.append("email", data.email)
+     fromData.append("phoneNumber", data.PhoneNumber)
+     fromData.append("whatsAppNumber", data.WhatsAppNumber)
+     fromData.append("facebook", data.facebook)
+     fromData.append("linkedIn", data.linkedIn)
+     fromData.append("instagram", data.Instagram)
+     fromData.append("resume", data.resume)
+   
     
+    
+   
 
     axios
-      .post("http://localhost:8000/api/expenses/", data)
+      .post("http://localhost:8000/api/expenses/", fromData )
       .then((res) => {
 
         console.log(res.data)
@@ -51,6 +54,7 @@ const AboutPersonalDataForm = () => {
     
   };
 
+  console.log(img)
 
 
   return (
@@ -185,16 +189,19 @@ const AboutPersonalDataForm = () => {
           <h6>Choose a Profile  photo</h6>
 
           <input
+
+          onChange={hendelImage}
           style={{display:"none"}}
-            onChange={hendelImageUploaded}
+            
             name="image"
             id="file"
             type="file"
             accept="image/*"
             multiple={false}
+        
           />
 
-          <label htmlFor="file">
+          <label  htmlFor="file">
             <BsCloudUpload /> {img?.name? "Image selected":"Upload Photo"} 
           </label>
           <h6>{img?.name}</h6>
