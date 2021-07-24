@@ -19,21 +19,17 @@ const AboutPersonalDataForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+
 
 
 // handel Profile image
   const hendelImageUploaded = (e) => {
-
     const img=e.target.files[0]
     const imageData = new FormData();
-    imageData.append("profileImg",img )
+    imageData.append("image",img )
     setProfileImg(imageData)
-    setImg(e.target.files[0])
-
-    
-    
+    setImg(img)
+  
   };
  
   const onSubmit = (data) => {
@@ -43,11 +39,16 @@ const AboutPersonalDataForm = () => {
 
     axios
       .post("http://localhost:8000/api/expenses/", data)
-      .then((res) => console.log(res.data));
+      .then((res) => {
 
-    Swal.fire("Good job!", "Added Successfully", "success");
-    setTitle("");
-    setDescription("");
+        console.log(res.data)
+        if(res){
+
+          Swal.fire("Good job!", "Added Successfully", "success");
+        }
+      });
+     
+    
   };
 
   return (
@@ -64,8 +65,8 @@ const AboutPersonalDataForm = () => {
             className="form-control"
             id="exampleFormControlInput1"
             placeholder="Your Name "
-            {...register("name", { required: true })}
-            required
+            {...register("name", { required: false })}
+            
           />
         </div>
         <div className="mb-3">
@@ -78,8 +79,8 @@ const AboutPersonalDataForm = () => {
             className="form-control"
             id="exampleFormControlInput2"
             placeholder="Your Email  "
-            {...register("email", { required: true })}
-            required
+            {...register("email", { required: false })}
+            
           />
         </div>
         <div className="mb-3">
@@ -92,8 +93,8 @@ const AboutPersonalDataForm = () => {
             className="form-control"
             id="exampleFormControlInput3"
             placeholder="Your Phone Number "
-            {...register("PhoneNumber", { required: true })}
-            required
+            {...register("PhoneNumber", { required: false })}
+            
           />
         </div>
         <div className="mb-3">
@@ -106,8 +107,8 @@ const AboutPersonalDataForm = () => {
             className="form-control"
             id="exampleFormControlInput4"
             placeholder="Your Whats App Number "
-            {...register("WhatsAppNumber", { required: true })}
-            required
+            {...register("WhatsAppNumber", { required: false })}
+            
           />
         </div>
         <div className="mb-3">
@@ -121,9 +122,9 @@ const AboutPersonalDataForm = () => {
             id="exampleFormControlInput5"
             placeholder="Put your facebook link "
             {...register("facebook", {
-              required: true,
+              required: false,
             })}
-            required
+            
           />
           {errors.facebook && (
             <span className="text-danger">Enter valide URl</span>
@@ -140,9 +141,9 @@ const AboutPersonalDataForm = () => {
             id="exampleFormControlInput6"
             placeholder="Put your linkedIn link "
             {...register("linkedIn", {
-              required: true,
+              required: false,
             })}
-            required
+            
           />
         </div>
         <div className="mb-3">
@@ -156,9 +157,9 @@ const AboutPersonalDataForm = () => {
             id="exampleFormControlInput6"
             placeholder="Put your Instagram link "
             {...register("Instagram", {
-              required: true,
+              required: false,
             })}
-            required
+            
           />
         </div>
         <div className="mb-3">
@@ -172,9 +173,9 @@ const AboutPersonalDataForm = () => {
             id="exampleFormControlInput7"
             placeholder="resume  link "
             {...register("resume", {
-              required: true,
+              required: false,
             })}
-            required
+            
           />
         </div>
         <div className="mb-3 weight-UPimg">
