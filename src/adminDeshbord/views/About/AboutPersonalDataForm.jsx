@@ -51,6 +51,8 @@ const AboutPersonalDataForm = () => {
     
   };
 
+
+
   return (
     <div className="card p-4 mt-4">
       <h3 className="text-primary  text-center">Personal Information </h3>
@@ -200,6 +202,9 @@ const AboutPersonalDataForm = () => {
 
         <SubmitButton text="Save" />
       </form>
+
+
+     
     </div>
   );
 };
