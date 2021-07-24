@@ -19,6 +19,7 @@ const About = () => {
          projects that push him both as an artist and as an individual.
          He need to question, understanding, and access the world close
          to him. His works aim to tell and inspire stories.`,
+         heading:undefined  
     },
     {
       P: ` Reyad Abedin Journey with photography started when he is a
