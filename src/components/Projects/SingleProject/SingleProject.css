@@ -11,3 +11,9 @@
     border: 4px solid white;
    
 }
+.pswp__bg {
+    background-color: #fff !important;
+}
+.pswp__ui--fit .pswp__top-bar, .pswp__ui--fit .pswp__caption {
+    background-color: rgb(255 255 255 / 30%) !important;
+}

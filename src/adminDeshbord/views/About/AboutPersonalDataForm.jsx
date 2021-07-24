@@ -1,7 +1,6 @@
 import React from "react";
 import "./About.css";
 import { BsCloudUpload } from "react-icons/bs";
-
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -44,7 +43,7 @@ const hendelImage=(e)=>{
       .post("http://localhost:8000/api/expenses/", fromData )
       .then((res) => {
 
-        console.log(res.data)
+        console.log(res)
         if(res){
 
           Swal.fire("Good job!", "Added Successfully", "success");
@@ -54,7 +53,7 @@ const hendelImage=(e)=>{
     
   };
 
-  console.log(img)
+
 
 
   return (
