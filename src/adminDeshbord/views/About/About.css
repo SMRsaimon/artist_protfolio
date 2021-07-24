@@ -2,3 +2,16 @@
 
     opacity: .3;
 }
+
+.weight-UPimg label {
+    color: #71ba58;
+    height: 39px;
+    width: 163px;
+    padding: 2px;
+    border: 2px solid #71ba58;
+    background-color: #dcffeced;
+    font-size: 18px;
+    display: flex;
+    border-radius: 5px;
+    cursor: pointer;
+  }

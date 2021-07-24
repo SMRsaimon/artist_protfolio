@@ -1,5 +1,6 @@
 import React from "react";
-import "./About.css"
+import "./About.css";
+import { BsCloudUpload } from "react-icons/bs";
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -10,6 +11,9 @@ import SubmitButton from "../SubmitButton/SubmitButton";
 const AboutPersonalDataForm = () => {
   const [aboutDetails, setAboutDetails] = useState({});
   const [value, setValue] = useState(false);
+
+  const [profileImg,setProfileImg]=useState({})
+  const [img, setImg ]=useState({})
   const {
     register,
     handleSubmit,
@@ -18,8 +22,24 @@ const AboutPersonalDataForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+
+// handel Profile image
+  const hendelImageUploaded = (e) => {
+
+    const img=e.target.files[0]
+    const imageData = new FormData();
+    imageData.append("profileImg",img )
+    setProfileImg(imageData)
+    setImg(e.target.files[0])
+
+    
+    
+  };
+ 
   const onSubmit = (data) => {
-    console.log(data);
+
+    data.profileImg=profileImg
+    
 
     axios
       .post("http://localhost:8000/api/expenses/", data)
@@ -157,12 +177,25 @@ const AboutPersonalDataForm = () => {
             required
           />
         </div>
-        <div className="mb-3">
-        <label className="form-label" for="file ">Upload  Your Img </label>
-          <input type="file" name="file" id="file" className="form-control"  />
-          
+        <div className="mb-3 weight-UPimg">
+         
+          <h6>Choose a Profile  photo</h6>
+
+          <input
+          style={{display:"none"}}
+            onChange={hendelImageUploaded}
+            name="image"
+            id="file"
+            type="file"
+            accept="image/*"
+            multiple={false}
+          />
+
+          <label htmlFor="file">
+            <BsCloudUpload /> {img?.name? "Image selected":"Upload Photo"} 
+          </label>
+          <h6>{img?.name}</h6>
         </div>
-      
 
         <SubmitButton text="Save" />
       </form>
