@@ -18,7 +18,7 @@ const Home = () => {
               </h1>
             </div>
             <div className="col-md-12">
-              <h3 className="text-center home-title">Visual Artist</h3>
+              <h3 className="text-center home-title">Photographer</h3>
             </div>
           </div>
         </div>

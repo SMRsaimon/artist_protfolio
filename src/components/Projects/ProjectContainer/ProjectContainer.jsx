@@ -7,11 +7,9 @@ import "photoswipe/dist/default-skin/default-skin.css";
 import { CustomGallery, DefaultLayout } from "react-photoswipe-gallery";
 import { useRef } from "react";
 import PhotoSwipeUI_Default from "photoswipe/dist/photoswipe-ui-default";
-import printIMG from "../../../resource/img/print-img/logo.png";
-import comingSoon from "../../../resource/img/print-img/comingsoon2.jpg";
-import onGoing from "../../../resource/img/print-img/ongoing.jpg";
+
 import Footer from "../../Footer/Footer";
-import { Image } from "react-bootstrap";
+
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 const ProjectContainer = ({ projectImg, title }) => {
