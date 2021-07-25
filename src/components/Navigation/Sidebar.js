@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components'; 
+import "./Navigation.css"
 import { Link } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
@@ -7,14 +8,6 @@ import { SidebarData } from './SidebarData';
 import SubMenu from './SubMenu';
 import { IconContext } from 'react-icons/lib';
 
-const Nav = styled.div`
-  background: #15171c;
-  height: 80px;
- 
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-`;
 
 const NavIcon = styled(Link)`
 margin-left: 4rem;
@@ -30,7 +23,7 @@ padding-top: 3rem;
 const CloseNavIcon=styled(Link)`
 
 margin-left: 12rem;
-
+color:red;
   font-size: 2rem;
   height: 80px;
   width:40px;
@@ -66,10 +59,10 @@ const Sidebar = () => {
 
   return (
     <>
-      <IconContext.Provider value={{ color: '#D83A56' }}>
+      <IconContext.Provider value={{ color: 'red' }}>
 
-          <NavIcon to='#'>
-            <FaIcons.FaBars onClick={showSidebar} />
+          <NavIcon className="toggle-icon" to='#'>
+            <FaIcons.FaBars  onClick={showSidebar} />
           </NavIcon>
         
         <SidebarNav sidebar={sidebar}>

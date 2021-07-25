@@ -24,7 +24,7 @@ const ProjectContainer = ({ projectImg, title }) => {
           {title?.heading ? (
             <>
               <div className="text-center print-img-container">
-                <Image src={printIMG} />
+                <h3 className="text-center text-Capitalize p-5 project-title"> {title.heading}</h3>
               </div>
               <p className="text-center"> {title?.text}</p>
               <p className="text-center">{title?.text2}</p>

@@ -1,0 +1,16 @@
+@media (max-width: 768px){
+    
+    .toggle-icon{
+
+        margin-left: 1rem !important;
+        
+    }
+
+
+}
+.toggle-icon svg{
+
+fill:white !important;
+
+
+}
