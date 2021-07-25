@@ -2,6 +2,7 @@ import React from "react";
 
 
 import PanelHeader from "../../components/PanelHeader/PanelHeader";
+import ProjectDescription from "./ProjectDescription";
 import ProjectImage from "./ProjectImage";
 import "./Projects.css";
 
@@ -19,8 +20,18 @@ const Projects = () => {
       />
       <div className="content">
         <div className="row">
-          <div className="col-md-8 offset-md-2">
+          <div className="col-md-8 offset-md-2 mb-4">
               <ProjectImage/>
+          
+          </div>
+
+
+          <div className="col-md-8 offset-md-2">
+              <h2 className="text-primary brand-text">About Project Details</h2>
+          
+          </div>
+          <div className="col-md-8 offset-md-2">
+              <ProjectDescription/>
           
           </div>
         </div>
