@@ -34,6 +34,7 @@ const hendelImage=(e)=>{
      fromData.append("linkedIn", data.linkedIn)
      fromData.append("instagram", data.Instagram)
      fromData.append("resume", data.resume)
+     fromData.append("id", Date.now())
    
     
     

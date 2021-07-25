@@ -48,6 +48,7 @@ const ProjectImage = () => {
         }
         formData.append("imgFolder", data.imgFolder);
         formData.append("vertical", data.vertical);
+        formData.append("id", Date.now());
 
         axios
           .post(
