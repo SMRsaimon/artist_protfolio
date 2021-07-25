@@ -21,9 +21,7 @@ const ProjectDescription = () => {
        
           if (e.target.value !== "false") {
             setImgFolder(true);
-          } else {
-            setImgFolder(false);
-          }
+          } 
         }
      
         // hendel form data
@@ -32,6 +30,7 @@ const ProjectDescription = () => {
         if (data.descriptionFolder !== "false") {
             setImgFolder(true);
            
+            data.id= Date.now()
             axios
             .post(
               "http://localhost:8000/endpoint/multi-images-upload", data
@@ -104,7 +103,7 @@ const ProjectDescription = () => {
         <div className="mb-3"> 
         
         <label for="exampleFormControlTextarea1" className="form-label">
-              More about myself
+             About Project Details
             </label>
             <textarea
               class="form-control"
