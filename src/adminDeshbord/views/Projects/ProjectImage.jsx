@@ -4,46 +4,92 @@ import React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsCloudUpload } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 const ProjectImage = () => {
   const [images, setImages] = useState([]);
+  const [Select, setSelect] = useState(false);
+
+  const [imgFolder, setImgFolder] = useState(true);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const hendelImageUploaded = (e) => {
     setImages([...images, ...e.target.files]);
+    if (e.target.files) {
+      setSelect(false);
+    }
   };
 
-  console.log(images);
-  const onSubmit = (data) => {
+  const hendelFolder = (e) => {
+    if (images.length > 0) {
+      if (e.target.value !== "false") {
+        setImgFolder(true);
+      } else {
+        setImgFolder(false);
+      }
+    }
+  };
 
+  const onSubmit = (data) => {
     let formData = new FormData();
 
-    for (const key of Object.keys(images)) {
-        formData.append('imagesArray', images[key])
-    }
-    axios.post("http://localhost:8000/endpoint/multi-images-upload", formData, {
-    }).then(response => {
-        console.log((response.data))
-    })
+    if (images.length > 0) {
+      setSelect(false);
+      if (data.imgFolder === "false") {
+        setImgFolder(false);
+      } else {
+        setImgFolder(true);
+        for (const key of Object.keys(images)) {
+          formData.append("imagesArray", images[key]);
+        }
+        formData.append("imgFolder", data.imgFolder);
+        formData.append("vertical", data.vertical);
 
+        axios
+          .post(
+            "http://localhost:8000/endpoint/multi-images-upload",
+            formData,
+            {}
+          )
+          .then((response) => {
+            setImages([]);
+            Swal.fire("Good job!", "Added Successfully", "success");
+            console.log(response.data);
+          });
+      }
+    }
+    if (images.length === 0) {
+      setSelect(true);
+    }
   };
   return (
     <div className="card p-4">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-3">
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Select Images Folder</option>
-            <option value="1">In Search Of</option>
-            <option value="2">Dhaka</option>
-            <option value="3">The Name Of City</option>
-            <option value="3">Joldash</option>
-            <option value="3">SonaliBeg</option>
-            <option value="3">Counting The Days</option>
-            <option value="3">Portfolio</option>
-            <option value="3">Print</option>
+          {!imgFolder && (
+            <p className="text-danger">Please selected a folder </p>
+          )}
+          <select
+            class="form-select"
+            {...register("imgFolder", { required: true })}
+            aria-label="Default select example"
+            onChange={hendelFolder}
+          >
+            <option value="false" selected>
+              Select Images Folder
+            </option>
+            <option value="inSearchOf">In Search Of</option>
+            <option value="Dhaka">Dhaka</option>
+            <option value="theNameOfCity">The Name Of City</option>
+            <option value="Joldash">Joldash</option>
+            <option value="SonaliBeg">SonaliBeg</option>
+            <option value="countingTheDays">Counting The Days</option>
+            <option value="portfolio">Portfolio</option>
+            <option value="print">Print</option>
           </select>
         </div>
         <div className="mb-3">
@@ -53,6 +99,7 @@ const ProjectImage = () => {
             type="checkbox"
             value=""
             id="flexCheckDefault"
+            {...register("vertical", { required: false })}
           />
           {"  "}
           <label class="form-check-label" for="flexCheckDefault">
@@ -76,7 +123,15 @@ const ProjectImage = () => {
             <BsCloudUpload /> Upload Photo
           </label>
         </div>
-        <button className="btn btn-outline-primary" type="submit">Save</button>
+        {Select && (
+          <p className="text-danger"> Please Select minimum One image </p>
+        )}
+        <p style={{ color: "gray" }}>
+          {images.length > 0 && images.length + "  " + "Image Selected "}
+        </p>
+        <button className="btn btn-outline-primary" type="submit">
+          Save
+        </button>
       </form>
     </div>
   );

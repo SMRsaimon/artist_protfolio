@@ -11,10 +11,10 @@ function Footer(props) {
         <div className="copyright">
         Copyright   &copy; {1900 + new Date().getYear()}, All rights reserved by {" "}
           <a href="#" target="_blank" rel="noopener noreferrer">
-          {" "}  Riyad Abedin
+          {" "}  Reyad  Abedin
           </a>
           {" "}  Developed by
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.mensadigiworld.com/" target="_blank" rel="noopener noreferrer">
           {" "}   Mensa Digiworld
           </a>
           .
