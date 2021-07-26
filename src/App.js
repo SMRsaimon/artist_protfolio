@@ -102,7 +102,7 @@ function App() {
             <LogIn />
           </Route>
 
-          <PrivateRoute path="/admin">
+          <PrivateRoute  path="/admin">
             <Route render={(props) => <AdminLayout {...props} />} />
           </PrivateRoute>
         </Switch>

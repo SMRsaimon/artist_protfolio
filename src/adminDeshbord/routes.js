@@ -28,13 +28,7 @@ var dashRoutes = [
     component: About,
     layout: "/admin",
   },
-  {
-    path: "/user-page",
-    name: "User Profile",
-    icon: <IoQrCodeSharp/>,
-    component: UserPage,
-    layout: "/admin",
-  },
+ 
   {
     path: "/projects",
     name: "Projects",
