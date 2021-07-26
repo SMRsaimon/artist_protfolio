@@ -95,9 +95,9 @@ function App() {
             <Footer />
           </Route>
 
-          <PrivateRoute exact path="/reyad_abedin/about">
+          <Route exact path="/reyad_abedin/about">
             <About />
-          </PrivateRoute>
+          </Route>
           <Route exact path="/login">
             <LogIn />
           </Route>
@@ -113,4 +113,4 @@ function App() {
 
 export default App;
 
-//
+
