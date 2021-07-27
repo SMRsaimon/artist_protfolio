@@ -15,7 +15,8 @@ const Footer = () => {
           </div>
           <div className="col-md-12 d-flex justify-content-center">
               <div className="copy-right-text">
-                     <p> Copyright @ {new Date().getFullYear()} All rights reserved by Riyad Abedin. 
+                     <p> Copyright @ {new Date().getFullYear()} All rights reserved by Reyad Abedin
+.
                      Developed by  <a href="https://www.mensadigiworld.com">Mensa Digiworld</a> </p>
               </div>
           </div>

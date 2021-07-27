@@ -59,7 +59,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <IconContext.Provider value={{ color: 'red' }}>
+      <IconContext.Provider value={{ color: 'gray' }}>
 
           <NavIcon className="toggle-icon" to='#'>
             <FaIcons.FaBars  onClick={showSidebar} />

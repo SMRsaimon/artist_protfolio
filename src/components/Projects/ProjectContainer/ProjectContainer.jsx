@@ -55,7 +55,7 @@ const ProjectContainer = ({ projectImg, title }) => {
                   {projectImg.length <= 5 && projectImg.length !== 0 && (
                     <>
                       <h4 className="text-center text-success p-5">
-                        On going......
+                      Work in Progress......
                       </h4>
                       <div className="col-md-12 d-flex justify-content-center">
                        

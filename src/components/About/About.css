@@ -1,5 +1,5 @@
 #about {
-  background: black;
+  background: #191a1e;
   padding-bottom: 70px;
 
   color: rgba(255, 255, 255, 0.767);
@@ -17,4 +17,12 @@
     letter-spacing: .8px;
    color: rgb(216, 58, 86);
     font-family: 'Fjalla One', sans-serif;
+}
+.img-thumbnail{
+  padding: 0.25rem;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0.25rem;
+  max-width: 100%;
+  height: auto;
 }

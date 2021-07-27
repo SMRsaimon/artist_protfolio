@@ -67,7 +67,7 @@ const About = () => {
         <Sidebar />
 
         <div className="container pt-5">
-        <h1 className="text-center pb-3 text-md-left  home-heading text-uppercase">
+        <h1 className="text-center pb-3 text-md-left  home-heading text-capitalize">
                 Reyad Abedin
               </h1>
           <div className="row">

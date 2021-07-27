@@ -12,12 +12,11 @@ const SidebarLink = styled(Link)`
   height: 60px;
   text-decoration: none;
   font-size: 18px;
-
-  &:hover {
-    background: #252831;
-    border-left: 4px solid #632ce4;
-    cursor: pointer;
+  &:hover{
+    color:rgb(238, 233, 233) ;
   }
+
+ 
 `;
 
 const SidebarLabel = styled.span`
@@ -33,11 +32,11 @@ const DropdownLink = styled(Link)`
   text-decoration: none;
   color: #f5f5f5;
   font-size: 16px;
-
-  &:hover {
-    border-left: 4px solid #632ce4;
-    cursor: pointer;
+  &:hover{
+    color:rgb(238, 233, 233) ;
   }
+
+  
 `;
 
 const SubMenu = ({ item,showSidebar }) => {

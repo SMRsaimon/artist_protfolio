@@ -13,7 +13,7 @@ const Home = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h1 className="text-center home-heading text-uppercase">
+              <h1 className="text-center home-heading text-capitalize">
                 Reyad Abedin
               </h1>
             </div>
