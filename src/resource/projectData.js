@@ -181,22 +181,22 @@ export const Joldash = [
 ];
 
 export const SonaliBeg = [
-  { fileName: "SonaliBeg", id: 71, img: S_img1, title: "REYAD ABEDIN" },
-  { fileName: "SonaliBeg", id: 72, img: S_img2, title: "REYAD ABEDIN" },
-  { fileName: "SonaliBeg", id: 73, img: S_img3, title: "REYAD ABEDIN" },
-  { fileName: "SonaliBeg", id: 74, img: S_img4, title: "REYAD ABEDIN" },
-  { fileName: "SonaliBeg", id: 75, img: S_img5, title: "REYAD ABEDIN" },
-  { fileName: "SonaliBeg", id: 76, img: S_img6, title: "REYAD ABEDIN" },
+  { fileName: "SonaliBag", id: 71, img: S_img1, title: "REYAD ABEDIN" },
+  { fileName: "SonaliBag", id: 72, img: S_img2, title: "REYAD ABEDIN" },
+  { fileName: "SonaliBag", id: 73, img: S_img3, title: "REYAD ABEDIN" },
+  { fileName: "SonaliBag", id: 74, img: S_img4, title: "REYAD ABEDIN" },
+  { fileName: "SonaliBag", id: 75, img: S_img5, title: "REYAD ABEDIN" },
+  { fileName: "SonaliBag", id: 76, img: S_img6, title: "REYAD ABEDIN" },
   {
-    fileName: "SonaliBeg",
+    fileName: "SonaliBag",
     id: 77,
     img: S_img7,
     title: "REYAD ABEDIN",
     Width: 900,
     Height: 1200,
   },
-  { fileName: "SonaliBeg", id: 78, img: S_img8, title: "REYAD ABEDIN" },
-  { fileName: "SonaliBeg", id: 79, img: S_img9, title: "REYAD ABEDIN" },
+  { fileName: "SonaliBag", id: 78, img: S_img8, title: "REYAD ABEDIN" },
+  { fileName: "SonaliBag", id: 79, img: S_img9, title: "REYAD ABEDIN" },
 ];
 
 export const portfolio = [

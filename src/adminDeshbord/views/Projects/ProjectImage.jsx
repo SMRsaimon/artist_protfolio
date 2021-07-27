@@ -43,8 +43,10 @@ const ProjectImage = () => {
         setImgFolder(false);
       } else {
         setImgFolder(true);
+
+
         for (const key of Object.keys(images)) {
-          formData.append("imagesArray", images[key]);
+          formData.append("image", images[key]);
         }
         formData.append("imgFolder", data.imgFolder);
         formData.append("vertical", data.vertical);
@@ -52,15 +54,19 @@ const ProjectImage = () => {
 
         axios
           .post(
-            "http://localhost:8000/endpoint/multi-images-upload",
+            "http://localhost:3001/projects/data",
             formData,
-            {}
+          
           )
           .then((response) => {
             setImages([]);
             Swal.fire("Good job!", "Added Successfully", "success");
             console.log(response.data);
-          });
+          })
+          .catch(err=>{
+
+            console.log(err.message)
+          })
       }
     }
     if (images.length === 0) {
@@ -69,7 +75,7 @@ const ProjectImage = () => {
   };
   return (
     <div className="card p-4">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} enctype="multipart/form-data">
         <div className="mb-3">
           {!imgFolder && (
             <p className="text-danger">Please selected a folder </p>
@@ -87,7 +93,7 @@ const ProjectImage = () => {
             <option value="Dhaka">Dhaka</option>
             <option value="theNameOfCity">The Name Of City</option>
             <option value="Joldash">Joldash</option>
-            <option value="SonaliBeg">SonaliBeg</option>
+            <option value="SonaliBag">SonaliBeg</option>
             <option value="countingTheDays">Counting The Days</option>
             <option value="portfolio">Portfolio</option>
             <option value="print">Print</option>

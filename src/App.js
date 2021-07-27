@@ -37,7 +37,7 @@ function App() {
     (x) => x.fileName === "theNameOfCity"
   );
   const Joldash = projectImg.filter((x) => x.fileName === "Joldash");
-  const SonaliBeg = projectImg.filter((x) => x.fileName === "SonaliBeg");
+  const SonaliBeg = projectImg.filter((x) => x.fileName === "SonaliBag");
   const countingTheDays = projectImg.filter(
     (x) => x.fileName === "countingTheDays"
   );
@@ -80,7 +80,7 @@ function App() {
           </Route>
 
           <Route exact path="/works/sonali_bag">
-            <ProjectContainer title="Sonali Beg" projectImg={SonaliBeg} />
+            <ProjectContainer title="Sonali Bag" projectImg={SonaliBeg} />
           </Route>
 
           <Route exact path="/works/portfolio">
