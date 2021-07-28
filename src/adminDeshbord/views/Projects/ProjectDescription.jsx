@@ -33,7 +33,7 @@ const ProjectDescription = () => {
             data.id= Date.now()
             axios
             .post(
-              "http://localhost:8000/endpoint/multi-images-upload", data
+              "http://localhost:3001/projects/details/data/insert", data
              
             )
             .then((response) => {
@@ -42,9 +42,13 @@ const ProjectDescription = () => {
               setDescription("")
               setTitle("")
               console.log(response);
-            });
+            })
+            .catch(err=>{
 
-            console.log(data)
+              console.log(err)
+            })
+
+           
           } else {
             setImgFolder(false);
           }
@@ -86,7 +90,7 @@ const ProjectDescription = () => {
               className="form-label"
               for="exampleFormControlInput1"
             >
-              Title
+              Title <small className="text-primary">(optional)</small>
             </label>
 
             <input

@@ -22,21 +22,10 @@ const About = () => {
          heading:undefined  
     },
     {
-      P: ` Reyad Abedin Journey with photography started when he is a
-         higher secondary student. After receiving a degree in apparel
-         manufacturing management, serious passion for photography
-         leads him to decide, pursue photography as a profession.
-         Following an interest in storytelling, he studied at Counter
-         Foto-A Center for Visual Arts, at Dhaka, Bangladesh.
-         Currently, he is based in Bangladesh working as an independent
-         photographer.`,
+      P: ` Reyad Abedin Journey with photography started when he is a higher secondary student. After receiving a degree in apparel manufacturing management, serious passion for photography leads him to decide, pursue photography as a profession. Following an interest in storytelling, he studied at Counter Foto-A Center for Visual Arts, at Dhaka, Bangladesh. `,
     },
     {
-      P: ` His work recognized by many International organizations and
-         magazines, including International center for Photography
-         museum, Sony World Photography Organizations (Student grant
-         Winner), Ian Parry Scholarship, Format photography Festival,
-         Format Magazine, Sunday Times Magazine, etc.`,
+      P: ` His work recognized by many International organizations and magazines, including International center for Photography museum, Sony World Photography Organizations (Student grant Winner), Ian Parry Scholarship, Format photography Festival, Format Magazine, Sunday Times Magazine, etc.  `,
     },
     {
       P: `  Lorem ipsum dolor sit amet consectetur adipisicing elit. Est

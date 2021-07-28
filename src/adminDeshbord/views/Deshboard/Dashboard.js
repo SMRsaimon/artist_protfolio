@@ -1,9 +1,10 @@
 import React from "react";
 import "./Dashboard.css";
 
-import { Row, Col } from "reactstrap";
 
-import PanelHeader from "../components/PanelHeader/PanelHeader.js";
+
+import PanelHeader from "../../components/PanelHeader/PanelHeader.js";
+import CreateAdminAccount from "./CreateAdminAccount";
 
 function Dashboard() {
   return (
@@ -17,23 +18,28 @@ function Dashboard() {
         }
       />
       <div className="content">
-        <Row>
-          <Col xs={12} md={12}>
-           <div className="card p-3">
+       <div className="row">
+         <div className="col-md-12">
+         <div className="card p-3">
            <h3 className=" text-center">
               H! Reyad Abedin Welcome to Admin Deshboard
             </h3>
 
            </div>
-            
-          </Col>
-          <Col xs={12} md={4}></Col>
-          <Col xs={12} md={4}></Col>
-        </Row>
-        <Row>
-          <Col xs={12} md={6}></Col>
-          <Col xs={12} md={6}></Col>
-        </Row>
+
+         </div>
+
+       </div>
+
+       <div className="row">
+          <div className="col-md-6">
+            <div className="card p-4 my-4">
+
+              <CreateAdminAccount/>
+
+            </div>
+          </div>
+       </div>
       </div>
     </>
   );

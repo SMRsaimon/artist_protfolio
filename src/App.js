@@ -19,6 +19,7 @@ import AdminLayout from "./adminDeshbord/layouts/Admin";
 import LogIn from "./adminDeshbord/LogIn/LogIn";
 import { createContext } from "react";
 import PrivateRoute from "./adminDeshbord/LogIn/PrivateRoute";
+import axios from "axios";
 
 export const userContext = createContext();
 
@@ -32,7 +33,7 @@ function App() {
   });
 
   const inSearchOf = projectImg.filter((x) => x.fileName === "inSearchOf");
-  const Dhaka = projectImg.filter((x) => x.fileName === "Dhaka");
+  const storiesFromTheSea = projectImg.filter((x) => x.fileName === "storiesFromTheSea");
   const theNameOfCity = projectImg.filter(
     (x) => x.fileName === "theNameOfCity"
   );
@@ -49,6 +50,19 @@ function App() {
     text: "If you are looking for any image/ prints, feel free to contact me for details information, sizes and pricing.",
     text2: "Worldwide Shipping Available",
   };
+
+  // get projectData from database 
+
+
+  useEffect(() => {
+
+    axios.get("http://localhost:3001/projects/data/get")
+        .then(result=>{
+
+          setProjectImg([...projectImg, ...result.data])
+        })
+ 
+  }, [])
   return (
     <userContext.Provider value={{ loginUser, setLoginUser }}>
       <Router>
@@ -66,8 +80,8 @@ function App() {
               projectImg={theNameOfCity}
             />
           </Route>
-          <Route exact path="/projects/dhaka">
-            <ProjectContainer title="Dhaka" projectImg={Dhaka} />
+          <Route exact path="/projects/storiesFromTheSea">
+            <ProjectContainer title="Stories From The Sea" projectImg={storiesFromTheSea} />
           </Route>
           <Route exact path="/projects/Joldash">
             <ProjectContainer title="Joldash" projectImg={Joldash} />

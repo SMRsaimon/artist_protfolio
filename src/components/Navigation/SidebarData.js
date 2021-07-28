@@ -29,8 +29,8 @@ export const SidebarData = [
         icon: <IoIcons.IoIosPaper />
       },
       {
-        title: 'Dhaka',
-        path: '/projects/dhaka',
+        title: 'Stories from the Sea',
+        path: '/projects/storiesFromTheSea',
         icon: <IoIcons.IoIosPaper />
       },
       {

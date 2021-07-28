@@ -11,6 +11,8 @@ const ProjectImage = () => {
   const [Select, setSelect] = useState(false);
 
   const [imgFolder, setImgFolder] = useState(true);
+
+
   const {
     register,
     handleSubmit,
@@ -18,9 +20,23 @@ const ProjectImage = () => {
   } = useForm();
 
   const hendelImageUploaded = (e) => {
-    setImages([...images, ...e.target.files]);
     if (e.target.files) {
       setSelect(false);
+      if (e.target.files[0].size > 1000000) {
+        setImages([])
+
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "File Size too large ",
+          footer:
+            "<p> Maximum File Size Allow 1MB</p>",
+        });
+
+      }else{
+
+        setImages(e.target.files);
+      }
     }
   };
 
@@ -43,33 +59,31 @@ const ProjectImage = () => {
         setImgFolder(false);
       } else {
         setImgFolder(true);
-
-
-        for (const key of Object.keys(images)) {
-          formData.append("image", images[key]);
-        }
+        formData.append("image", images[0]);
         formData.append("imgFolder", data.imgFolder);
         formData.append("vertical", data.vertical);
-        formData.append("id", Date.now());
-
+        formData.append("squire", data.squire);
         axios
-          .post(
-            "http://localhost:3001/projects/data",
-            formData,
-          
-          )
+          .post("http://localhost:3001/projects/data/insert", formData)
           .then((response) => {
+            if (response.data) {
+              setImages([]);
+              Swal.fire("Good job!", "Added Successfully", "success");
+              console.log(response.data);
+            }
+          })
+          .catch((err) => {
             setImages([]);
-            Swal.fire("Good job!", "Added Successfully", "success");
-            console.log(response.data);
-          })
-          .catch(err=>{
-
-            console.log(err.message)
-          })
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong!",
+              footer:
+                "<p> Please check your Image size and Image type and try again</p>",
+            });
+          });
       }
-    }
-    if (images.length === 0) {
+    } else {
       setSelect(true);
     }
   };
@@ -90,17 +104,18 @@ const ProjectImage = () => {
               Select Images Folder
             </option>
             <option value="inSearchOf">In Search Of</option>
-            <option value="Dhaka">Dhaka</option>
+            <option value="storiesFromTheSea">Stories From The Sea</option>
             <option value="theNameOfCity">The Name Of City</option>
             <option value="Joldash">Joldash</option>
-            <option value="SonaliBag">SonaliBeg</option>
+            <option value="SonaliBag">SonaliBag</option>
             <option value="countingTheDays">Counting The Days</option>
             <option value="portfolio">Portfolio</option>
             <option value="print">Print</option>
           </select>
         </div>
         <div className="mb-3">
-          <p>Images Size </p>
+          <p>Images Size <small className="text-primary">(optional)</small></p>
+          <div className="pb-3">
           <input
             class="form-check-input"
             type="checkbox"
@@ -112,6 +127,23 @@ const ProjectImage = () => {
           <label class="form-check-label" for="flexCheckDefault">
             Vertical
           </label>
+
+          </div>
+          <div>
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault2"
+            {...register("squire", { required: false })}
+          />
+          {"  "}
+          <label class="form-check-label" for="flexCheckDefault2">
+            Squire
+          </label>
+
+          </div>
+         
         </div>
         <div className="mb-3 weight-UPimg">
           <h6>Select photo/photos</h6>
@@ -123,7 +155,7 @@ const ProjectImage = () => {
             id="file"
             type="file"
             accept="image/*"
-            multiple
+            multiple={false}
           />
 
           <label htmlFor="file">
