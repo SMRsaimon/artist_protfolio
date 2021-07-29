@@ -6,7 +6,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
+
 } from "react-router-dom";
 import Home from "./components/Home/Home";
 import ProjectContainer from "./components/Projects/ProjectContainer/ProjectContainer";
@@ -20,13 +20,14 @@ import LogIn from "./adminDeshbord/LogIn/LogIn";
 import { createContext } from "react";
 import PrivateRoute from "./adminDeshbord/LogIn/PrivateRoute";
 import axios from "axios";
-import jwt_decode from "jwt-decode";
+
 
 export const userContext = createContext();
 
 function App() {
   const [projectImg, setProjectImg] = useState(projectData);
   const [loginUser, setLoginUser] = useState({});
+
 
   const inSearchOf = projectImg.filter((x) => x.fileName === "inSearchOf");
   const storiesFromTheSea = projectImg.filter(
@@ -64,7 +65,7 @@ function App() {
    
   }, []);
 
-  console.log(loginUser)
+
   return (
     <userContext.Provider value={{ loginUser, setLoginUser }}>
       <Router>

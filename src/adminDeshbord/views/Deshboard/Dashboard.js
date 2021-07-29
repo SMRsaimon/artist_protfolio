@@ -3,10 +3,17 @@ import "./Dashboard.css";
 import PanelHeader from "../../components/PanelHeader/PanelHeader.js";
 import CreateAdminAccount from "./CreateAdminAccount";
 import DeleteAdminAccess from "./DeleteAdminAccess";
+import { createContext } from "react";
+import { useState } from "react";
 
+export const loadingContext=createContext()
 function Dashboard() {
+
+const [adminReload, setAdminReload]=useState(false)
+
+
   return (
-    <>
+    <loadingContext.Provider value={{adminReload, setAdminReload}}>
       <PanelHeader
         size="sm"
         content={
@@ -40,7 +47,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
-    </>
+    </loadingContext.Provider>
   );
 }
 

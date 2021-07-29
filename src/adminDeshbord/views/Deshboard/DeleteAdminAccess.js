@@ -4,11 +4,14 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { useContext } from "react";
+
+import { loadingContext } from "./Dashboard";
 
 const DeleteAdminAccess = () => {
   const [adminEmail, setAdminEmail] = useState([]);
-
-  const [dxelete,setDxelete]=useState(false)
+  const {adminReload}=useContext(loadingContext)
+  const [deleteAdmin,setDeleteAdmin]=useState(false)
 
   useEffect(() => {
     axios
@@ -21,7 +24,7 @@ const DeleteAdminAccess = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [dxelete]);
+  }, [deleteAdmin,adminReload]);
 
   //   Remove admin form admin role
   const handelAdminRemove = (id) => {
@@ -35,13 +38,13 @@ const DeleteAdminAccess = () => {
           title: "Admin Remove  successfully",
           
         });
-        setDxelete(!dxelete)
+        setDeleteAdmin(!deleteAdmin)
       })
       .catch((err) => {
         console.log(err);
       });
   };
-console.log(dxelete)
+
   return (
     <div>
       <h4 className="text-center text-primary my-2">Admin Email</h4>

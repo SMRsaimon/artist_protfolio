@@ -1,14 +1,19 @@
 import axios from "axios";
 import React from "react";
+import { useContext } from "react";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+
+import { loadingContext } from "./Dashboard";
 import { Toast } from "./Notification";
 
 const CreateAdminAccount = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
-const history=useHistory()
+  const {adminReload, setAdminReload}=useContext(loadingContext)
+
+
+
   const hendelFromSubmit = (e) => {
     e.preventDefault();
     const date = new Date();
@@ -24,7 +29,7 @@ const history=useHistory()
           icon: "success",
           title: "Admin create  successfully",
         });
-        history.push("admin/dashboard")
+        setAdminReload(!adminReload)
 
       })
       .catch((err) => {
