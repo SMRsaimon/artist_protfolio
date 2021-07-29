@@ -27,7 +27,7 @@ const LogIn = () => {
 
   const onSubmit = (data) => {
     axios
-      .post("http://localhost:5000/admin/login", data)
+      .post("http://localhost:5000/admin/login/api/login", data)
       .then((result) => {           
         setLoginUser({email:data.email})
         history.replace(from)

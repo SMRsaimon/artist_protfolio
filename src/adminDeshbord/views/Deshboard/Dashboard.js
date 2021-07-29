@@ -1,10 +1,8 @@
 import React from "react";
 import "./Dashboard.css";
-
-
-
 import PanelHeader from "../../components/PanelHeader/PanelHeader.js";
 import CreateAdminAccount from "./CreateAdminAccount";
+import DeleteAdminAccess from "./DeleteAdminAccess";
 
 function Dashboard() {
   return (
@@ -18,28 +16,29 @@ function Dashboard() {
         }
       />
       <div className="content">
-       <div className="row">
-         <div className="col-md-12">
-         <div className="card p-3">
-           <h3 className=" text-center">
-              H! Reyad Abedin Welcome to Admin Deshboard
-            </h3>
-
-           </div>
-
-         </div>
-
-       </div>
-
-       <div className="row">
-          <div className="col-md-6">
-            <div className="card p-4 my-4">
-
-              <CreateAdminAccount/>
-
+        <div className="row">
+          <div className="col-md-12">
+            <div className="card p-3">
+              <h3 className=" text-center">
+                H! Reyad Abedin Welcome to Admin Deshboard
+              </h3>
             </div>
           </div>
-       </div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-6">
+            <div className="card p-4 my-4">
+              <CreateAdminAccount />
+            </div>
+          </div>
+
+          <div className="col-md-6">
+            <div className="card p-4 my-4">
+              <DeleteAdminAccess />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

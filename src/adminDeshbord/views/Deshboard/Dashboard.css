@@ -1,0 +1,6 @@
+.deleteIcon svg{
+
+    fill: red;
+    font-size: 20px;
+    cursor: pointer;
+}

@@ -8,12 +8,6 @@ import { logInUserData } from "./LogInUserData";
 const PrivateRoute = ({ children, ...rest }) => {
   const { loginUser, setLoginUser } = useContext(userContext);
 
-  
-
-  
-
-
-
 
   return (
     <Route
