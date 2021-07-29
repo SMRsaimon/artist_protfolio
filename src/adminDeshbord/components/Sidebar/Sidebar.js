@@ -1,14 +1,15 @@
-
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { Nav } from "reactstrap";
 
 import PerfectScrollbar from "perfect-scrollbar";
-
+import { FiLogOut } from "react-icons/fi";
+import { signOut } from "../../LogIn/SignOut";
 
 var ps;
 
 function Sidebar(props) {
+  const history = useHistory();
   const sidebar = React.useRef();
 
   const activeRoute = (routeName) => {
@@ -27,16 +28,12 @@ function Sidebar(props) {
       }
     };
   });
+
   return (
     <div className="sidebar" data-color={props.backgroundColor}>
       <div className="logo">
-        <a
-          href="/"
-          className="simple-text logo-normal"
-          target="_blank"
-        >
+        <a href="/" className="simple-text logo-normal" target="_blank">
           REYAD ABEDIN
-
         </a>
       </div>
       <div className="sidebar-wrapper" ref={sidebar}>
@@ -56,14 +53,30 @@ function Sidebar(props) {
                   className="nav-link"
                   activeClassName="active"
                 >
-                 <span>{prop.icon}</span> 
-                 {"  "}
+                  <span>{prop.icon}</span>
+                  {"  "}
                   <span>{prop.name}</span>
                 </NavLink>
               </li>
             );
           })}
         </Nav>
+
+        <div className="footer mt-5">
+          <button
+            onClick={() =>
+             
+              signOut(() => {
+               
+                history.push("/");
+
+              })
+            }
+            className=" btn ms-3"
+          >
+            <FiLogOut /> Log Out
+          </button>
+        </div>
       </div>
     </div>
   );

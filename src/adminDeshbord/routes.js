@@ -1,6 +1,5 @@
 import Dashboard from "./views/Deshboard/Dashboard";
 import About from "./views/About/About";
-import UserPage from "./views/UserPage";
 import Projects from "./views/Projects/Projects";
 
 // React icon 

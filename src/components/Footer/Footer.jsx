@@ -14,7 +14,7 @@ const Footer = () => {
 
 
   
-  axios.get("http://localhost:3001/projects")
+  axios.get("http://localhost:5000/projects")
   .then(result=>{
 
     setImg(result.data)

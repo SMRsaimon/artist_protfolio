@@ -20,20 +20,18 @@ import LogIn from "./adminDeshbord/LogIn/LogIn";
 import { createContext } from "react";
 import PrivateRoute from "./adminDeshbord/LogIn/PrivateRoute";
 import axios from "axios";
+import jwt_decode from "jwt-decode";
 
 export const userContext = createContext();
 
 function App() {
   const [projectImg, setProjectImg] = useState(projectData);
-  const [loginUser, setLoginUser] = useState({
-    email: "",
-    password: "",
-    error: false,
-    success: false,
-  });
+  const [loginUser, setLoginUser] = useState({});
 
   const inSearchOf = projectImg.filter((x) => x.fileName === "inSearchOf");
-  const storiesFromTheSea = projectImg.filter((x) => x.fileName === "storiesFromTheSea");
+  const storiesFromTheSea = projectImg.filter(
+    (x) => x.fileName === "storiesFromTheSea"
+  );
   const theNameOfCity = projectImg.filter(
     (x) => x.fileName === "theNameOfCity"
   );
@@ -51,18 +49,22 @@ function App() {
     text2: "Worldwide Shipping Available",
   };
 
-  // get projectData from database 
-
+  // get projectData from database
 
   useEffect(() => {
+   
 
-    axios.get("http://localhost:3001/projects/data/get")
-        .then(result=>{
+    axios.get("http://localhost:5000/projects/data/get").then((result) => {
+      setProjectImg([...projectImg, ...result.data]);
+    });
 
-          setProjectImg([...projectImg, ...result.data])
-        })
- 
-  }, [])
+  
+
+       
+   
+  }, []);
+
+  console.log(loginUser)
   return (
     <userContext.Provider value={{ loginUser, setLoginUser }}>
       <Router>
@@ -81,7 +83,10 @@ function App() {
             />
           </Route>
           <Route exact path="/projects/storiesFromTheSea">
-            <ProjectContainer title="Stories From The Sea" projectImg={storiesFromTheSea} />
+            <ProjectContainer
+              title="Stories From The Sea"
+              projectImg={storiesFromTheSea}
+            />
           </Route>
           <Route exact path="/projects/Joldash">
             <ProjectContainer title="Joldash" projectImg={Joldash} />
@@ -116,7 +121,7 @@ function App() {
             <LogIn />
           </Route>
 
-          <PrivateRoute  path="/admin">
+          <PrivateRoute path="/admin">
             <Route render={(props) => <AdminLayout {...props} />} />
           </PrivateRoute>
         </Switch>
@@ -126,5 +131,3 @@ function App() {
 }
 
 export default App;
-
-
