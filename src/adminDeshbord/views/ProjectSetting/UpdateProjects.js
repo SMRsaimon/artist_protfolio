@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import Swal from "sweetalert2";
 
-const UpdateProjects = ({ imgData }) => {
+const UpdateProjects = ({ imgData, setImgReload }) => {
   // image update heandelar
   const hendelImagesUpdate = async (id) => {
     let formData = new FormData();
@@ -35,53 +35,50 @@ const UpdateProjects = ({ imgData }) => {
         })
         .then((response) => {
           if (response.data) {
-            if (file) {
-                const reader = new FileReader()
-                reader.onload = (e) => {
-                  Swal.fire({
-                    title: 'Your uploaded picture',
-                    imageUrl: e.target.result,
-                    imageAlt: 'The uploaded picture'
-                  })
-                }
-                reader.readAsDataURL(file)
-              }
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              Swal.fire({
+                title: "Your uploaded picture",
+                imageUrl: e.target.result,
+                imageAlt: "The uploaded picture",
+              });
+            };
+            reader.readAsDataURL(file);
+
+            setImgReload((imgReload) => !imgReload);
           }
         })
         .catch((err) => console.log(err));
     }
-
-      
   };
 
   //    images delete hendelar
   const hendelImagesDelete = (id) => {
-
     Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          axios
-            .delete(`http://localhost:5000/projects/data/img/delete/${id}`, {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-              },
-            })
-            .then((result) => {
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
-              
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        }
-    })
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:5000/projects/data/img/delete/${id}`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          })
+          .then((result) => {
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            setImgReload((imgReload) => !imgReload);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    });
   };
   return (
     <div className="col-md-3">

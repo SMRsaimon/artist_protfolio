@@ -7,6 +7,7 @@ import "./ProjectSetting.css"
 import UpdateProjects from './UpdateProjects';
 const ProjectSetting = () => {
 
+    const [imgReload,setImgReload]=useState(false)
     const [projectImg,setProjectImg]=useState([])
 
     
@@ -34,7 +35,7 @@ useEffect(() => {
         setProjectImg(result.data);
     });    
    
-  }, []);
+  }, [imgReload]);
 
     return (
 
@@ -51,13 +52,14 @@ useEffect(() => {
          <div className="row ">
               <h3 className="text-center  text-capitalize text-primary py-5">JolDash</h3>
           {
-            Joldash.length>0 &&  Joldash.map(x=><  UpdateProjects key={x.id} imgData={x}   />)
+            Joldash.length>0 &&  Joldash.map(x=><  UpdateProjects key={x.id} imgData={x} setImgReload={setImgReload}   />)
           }
          </div>
          <div className="row ">
               <h3 className="text-center  text-capitalize text-primary py-5">inSearchOf</h3>
           {
-            inSearchOf.length>0 &&   inSearchOf.map(x=><  UpdateProjects key={x.id}  imgData={x}  />)
+            inSearchOf.length>0 &&   inSearchOf.map(x=><  UpdateProjects key={x.id}  imgData={x} 
+                setImgReload={setImgReload} />)
           }
          </div>
                
