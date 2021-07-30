@@ -23,15 +23,29 @@
 .onGoing-img {
 }
 .ResponsiveMasonry {
-  margin-left:  200px ;
+  /* margin-left:  200px ; */
+ 
+  margin-left:16% ;
+ 
+    width: 82% !important;
 }
+
 
 @media (max-width: 768px){
     .ResponsiveMasonry{
-        margin-left:  0 ;
+        
 
     }
     
 
 
 }
+/* @media (max-width: 1600px){
+  .ResponsiveMasonry{
+      margin-left:  -200px ;
+
+  }
+  
+
+
+} */

@@ -6,56 +6,118 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import Swal from "sweetalert2";
 import SubmitButton from "../SubmitButton/SubmitButton";
-
+import { useEffect } from "react";
+import { Toast } from "../../views/Deshboard/Notification";
 const AboutPersonalDataForm = () => {
-  const [img, setImg ]=useState({})
+  const [contractInformation, setContractInformation] = useState({});
+
+  const [reload,setReload]=useState(false)
+
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  // update profile images
+  const updateImage = (e) => {
+    const img = e.target.files[0];
+    let fromData = new FormData();
+    fromData.append("image", img);
 
-const hendelImage=(e)=>{
-
-   const img=e.target.files[0]
-   setImg(img)
-
-}
- 
-  const onSubmit = (data) => {
-     let fromData= new FormData()
-     fromData.append("profileImg", img)
-     fromData.append("name", data.name)
-     fromData.append("email", data.email)
-     fromData.append("phoneNumber", data.PhoneNumber)
-     fromData.append("whatsAppNumber", data.WhatsAppNumber)
-     fromData.append("facebook", data.facebook)
-     fromData.append("linkedIn", data.linkedIn)
-     fromData.append("instagram", data.Instagram)
-     fromData.append("resume", data.resume)
-     fromData.append("id", Date.now())
-   
-    
-    
-   
+    fromData.append("date", new Date());
 
     axios
-      .post("http://localhost:8000/api/expenses/", fromData )
-      .then((res) => {
-
-        console.log(res)
-        if(res){
-
-          Swal.fire("Good job!", "Added Successfully", "success");
+      .patch(
+        `http://localhost:5000/adminInformation/api/profileImg/update/${contractInformation.id}`,
+        fromData,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
         }
+      )
+      .then((res) => {
+        if (res)
+        setReload(!reload)
+          Toast.fire({
+            icon: "success",
+            title: "Image Update successful!",
+          });
+
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<p className="text-danger">Please Try again</p>'
+        })
       });
-     
-    
   };
 
+  // update information
+  const onSubmit = (data) => {
+    if (data.name === "") {
+      data.name = contractInformation.name;
+    }
 
+    if (data.email === "") {
+      data.email = contractInformation.email;
+    }
+    if (data.phoneNumber === "") {
+      data.phoneNumber = contractInformation.phoneNumber;
+    }
+    if (data.whatsAppNumber === "") {
+      data.whatsAppNumber = contractInformation.whatsAppNumber;
+    }
+    if (data.facebook === "") {
+      data.facebook = contractInformation.facebook;
+    }
 
+    if (data.linkedIn === "") {
+      data.linkedIn = contractInformation.linkedIn;
+    }
+    if (data.instagram === "") {
+      data.instagram = contractInformation.instagram;
+    }
+    if (data.resume === "") {
+      data.resume = contractInformation.resume;
+    }
+
+    axios
+      .patch(
+        `http://localhost:5000/adminInformation/api/contractInformation/update/${contractInformation.id}`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+      .then((res) => {
+        if (res) {
+          setReload(!reload)
+          Swal.fire("Good job!", " Your Information Update", "success");
+        }
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<p className="text-danger">Please Try again</p>'
+        })
+      });
+  };
+
+  // get personal information data
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/adminInformation/api/contractInformation/get")
+      .then((result) => setContractInformation(result.data[0]));
+  }, [reload]);
 
   return (
     <div className="card p-4 mt-4">
@@ -72,7 +134,7 @@ const hendelImage=(e)=>{
             id="exampleFormControlInput1"
             placeholder="Your Name "
             {...register("name", { required: false })}
-            
+            defaultValue={contractInformation?.name}
           />
         </div>
         <div className="mb-3">
@@ -86,7 +148,7 @@ const hendelImage=(e)=>{
             id="exampleFormControlInput2"
             placeholder="Your Email  "
             {...register("email", { required: false })}
-            
+            defaultValue={contractInformation?.email}
           />
         </div>
         <div className="mb-3">
@@ -99,8 +161,8 @@ const hendelImage=(e)=>{
             className="form-control"
             id="exampleFormControlInput3"
             placeholder="Your Phone Number "
-            {...register("PhoneNumber", { required: false })}
-            
+            {...register("phoneNumber", { required: false })}
+            defaultValue={contractInformation?.phoneNumber}
           />
         </div>
         <div className="mb-3">
@@ -113,8 +175,8 @@ const hendelImage=(e)=>{
             className="form-control"
             id="exampleFormControlInput4"
             placeholder="Your Whats App Number "
-            {...register("WhatsAppNumber", { required: false })}
-            
+            {...register("whatsAppNumber", { required: false })}
+            defaultValue={contractInformation?.whatsAppNumber}
           />
         </div>
         <div className="mb-3">
@@ -130,7 +192,7 @@ const hendelImage=(e)=>{
             {...register("facebook", {
               required: false,
             })}
-            
+            defaultValue={contractInformation?.facebook}
           />
           {errors.facebook && (
             <span className="text-danger">Enter valide URl</span>
@@ -149,7 +211,7 @@ const hendelImage=(e)=>{
             {...register("linkedIn", {
               required: false,
             })}
-            
+            defaultValue={contractInformation?.linkedIn}
           />
         </div>
         <div className="mb-3">
@@ -162,10 +224,10 @@ const hendelImage=(e)=>{
             className="form-control"
             id="exampleFormControlInput6"
             placeholder="Put your Instagram link "
-            {...register("Instagram", {
+            {...register("instagram", {
               required: false,
             })}
-            
+            defaultValue={contractInformation?.instagram}
           />
         </div>
         <div className="mb-3">
@@ -181,39 +243,44 @@ const hendelImage=(e)=>{
             {...register("resume", {
               required: false,
             })}
-            
+            defaultValue={contractInformation?.resume}
           />
         </div>
-        <div className="mb-3 weight-UPimg">
+
+        <div className="">
          
-          <h6>Choose a Profile  photo</h6>
+          <img
+            style={{ width: "100px", height: "100px" }}
+            src={contractInformation?.profileImg}
+            className="rounded "
+            alt=".........."
+          />
+        </div>
+
+        <div className="mb-3 weight-UPimg">
+          <h6> Update a Profile photo</h6>
 
           <input
-
-          onChange={hendelImage}
-          style={{display:"none"}}
-            
+            onChange={updateImage}
+            style={{ display: "none" }}
             name="image"
             id="file"
             type="file"
             accept="image/*"
             multiple={false}
-        
           />
 
-          <label  htmlFor="file">
-            <BsCloudUpload /> {img?.name? "Image selected":"Upload Photo"} 
+          <label htmlFor="file">
+            <BsCloudUpload /> Upload Photo
           </label>
-          <h6>{img?.name}</h6>
+         
         </div>
 
-        <SubmitButton text="Save" />
+        <SubmitButton text="Update" />
       </form>
-
-
-     
     </div>
   );
 };
 
 export default AboutPersonalDataForm;
+// icon={MdSystemUpdateAlt}

@@ -36,7 +36,7 @@ const ProjectContainer = ({ projectImg, title }) => {
           <div className="row d-flex justify-content-center">
             <CustomGallery layoutRef={layoutRef} ui={PhotoSwipeUI_Default}>
               <ResponsiveMasonry
-                columnsCountBreakPoints={{ 350: 1, 750: 2, 900:3, 1400:4 }}
+                columnsCountBreakPoints={{ 350: 1,760:2, 1000:3, 1400:4 }}
                 className="ResponsiveMasonry"
               >
                 <Masonry  >
