@@ -64,7 +64,12 @@ const ProjectImage = () => {
         formData.append("vertical", data.vertical);
         formData.append("squire", data.squire);
         axios
-          .post("http://localhost:5000/projects/data/insert", formData)
+          .post("http://localhost:5000/projects/data/insert", formData,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          })
           .then((response) => {
             if (response.data) {
               setImages([]);

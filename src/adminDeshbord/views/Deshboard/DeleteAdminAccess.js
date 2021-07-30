@@ -7,11 +7,12 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { useContext } from "react";
 
 import { loadingContext } from "./Dashboard";
+import Swal from "sweetalert2";
 
 const DeleteAdminAccess = () => {
   const [adminEmail, setAdminEmail] = useState([]);
-  const {adminReload}=useContext(loadingContext)
-  const [deleteAdmin,setDeleteAdmin]=useState(false)
+  const { adminReload } = useContext(loadingContext);
+  const [deleteAdmin, setDeleteAdmin] = useState(false);
 
   useEffect(() => {
     axios
@@ -24,25 +25,47 @@ const DeleteAdminAccess = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [deleteAdmin,adminReload]);
+  }, [deleteAdmin, adminReload]);
 
   //   Remove admin form admin role
   const handelAdminRemove = (id) => {
-    axios
-      .delete(`http://localhost:5000/adminPanel/api/admin/delete/${id}`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-      })
-      .then((result) => {
-        Toast.fire({
-          icon: "success",
-          title: "Admin Remove  successfully",
-          
-        });
-        setDeleteAdmin(!deleteAdmin)
-      })
-      .catch((err) => {
-        console.log(err);
+    if (adminEmail.length > 1) {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axios
+            .delete(`http://localhost:5000/adminPanel/api/admin/delete/${id}`, {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            })
+            .then((result) => {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              setDeleteAdmin(!deleteAdmin);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
       });
+    } else {
+      Swal.fire({
+        title: "Minimum One Admin access is required",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      });
+    }
   };
 
   return (

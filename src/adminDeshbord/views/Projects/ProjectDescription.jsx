@@ -33,7 +33,12 @@ const ProjectDescription = () => {
             data.id= Date.now()
             axios
             .post(
-              "http://localhost:5000/projects/details/data/insert", data
+              "http://localhost:5000/projects/details/data/insert", data,
+              {
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+              }
              
             )
             .then((response) => {
@@ -41,7 +46,7 @@ const ProjectDescription = () => {
               Swal.fire("Good job!", "Added Successfully", "success");
               setDescription("")
               setTitle("")
-              console.log(response);
+              
             })
             .catch(err=>{
 
