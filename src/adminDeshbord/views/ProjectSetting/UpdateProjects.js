@@ -28,7 +28,7 @@ const UpdateProjects = ({ imgData }) => {
       formData.append("image", file);
       formData.append("id", id);
       axios
-        .patch("http://localhost:5000/projects/data/update", formData, {
+        .patch("http://localhost:5000/projects/data/img/update", formData, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -55,7 +55,34 @@ const UpdateProjects = ({ imgData }) => {
   };
 
   //    images delete hendelar
-  const hendelImagesDelete = (id) => {};
+  const hendelImagesDelete = (id) => {
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axios
+            .delete(`http://localhost:5000/projects/data/img/delete/${id}`, {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            })
+            .then((result) => {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+    })
+  };
   return (
     <div className="col-md-3">
       <div className="card shadow-lg p-4 mb-3 admin-project-images-container">
