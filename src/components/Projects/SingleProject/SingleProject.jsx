@@ -18,7 +18,7 @@ const SingleProject = ({ project }) => {
   }
 
   return (
-    <div className="col-xl-3 col-lg-4 col-md-6 d-flex justify-content-center">
+    <div className="col-xl-3 col-lg-4 col-md-6  ">
       <div className="img-container mb-3">
         <Item
           original={project.img}

@@ -2,10 +2,17 @@
   background-color: #e9e4e4dc;
 }
 .project-title {
+  letter-spacing: 0.8px;
+  color: rgb(0, 0, 0);
+  font-family: "Taviraj", serif;
+  font-weight: 900;
+}
+.projectDescription p{
+  color: #433f3f;
+  font-family: "Roboto", Sans-serif !important;
+  font-weight: 400;
 
-  letter-spacing: .8px;
- color: rgb(0, 0, 0);
- font-family: 'Taviraj', serif;
+
 }
 
 .print-img-container img {
@@ -23,22 +30,20 @@
 .onGoing-img {
 }
 .ResponsiveMasonry {
-  /* margin-left:  200px ; */
- 
-  margin-left:16% ;
- 
-    width: 82% !important;
+  margin-left: 1.8%;
+
+  width: 82% !important;
 }
 
-
-@media (max-width: 768px){
-    .ResponsiveMasonry{
-        
-
-    }
-    
-
-
+@media (max-width: 768px) {
+  .ResponsiveMasonry {
+    margin-left: 24%;
+  }
+}
+@media (max-width: 450px) {
+  .ResponsiveMasonry {
+    margin-left: 15%;
+  }
 }
 /* @media (max-width: 1600px){
   .ResponsiveMasonry{

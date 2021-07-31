@@ -2,12 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./adminDeshbord/assets/css/demo.css";
 import "./adminDeshbord/assets/scss/now-ui-dashboard.scss";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import ProjectContainer from "./components/Projects/ProjectContainer/ProjectContainer";
 import { projectData } from "./resource/projectData";
@@ -21,28 +16,18 @@ import { createContext } from "react";
 import PrivateRoute from "./adminDeshbord/LogIn/PrivateRoute";
 import axios from "axios";
 
-
 export const userContext = createContext();
 
 function App() {
   const [projectImg, setProjectImg] = useState(projectData);
+  const [projectDetails, setProjectDetails] = useState([]);
   const [loginUser, setLoginUser] = useState({});
 
+  // Filter function for filter project images data and details
 
-  const inSearchOf = projectImg.filter((x) => x.fileName === "inSearchOf");
-  const storiesFromTheSea = projectImg.filter(
-    (x) => x.fileName === "storiesFromTheSea"
-  );
-  const theNameOfCity = projectImg.filter(
-    (x) => x.fileName === "theNameOfCity"
-  );
-  const Joldash = projectImg.filter((x) => x.fileName === "Joldash");
-  const SonaliBeg = projectImg.filter((x) => x.fileName === "SonaliBag");
-  const countingTheDays = projectImg.filter(
-    (x) => x.fileName === "countingTheDays"
-  );
-  const portfolio = projectImg.filter((x) => x.fileName === "portfolio");
-  const print = projectImg.filter((x) => x.fileName === "print");
+  const FilterProject = (data, fileName) => {
+    return data.filter((x) => x.fileName === fileName);
+  };
 
   const printText = {
     heading: "Print",
@@ -53,17 +38,17 @@ function App() {
   // get projectData from database
 
   useEffect(() => {
-   
-
     axios.get("http://localhost:5000/projects/data/get").then((result) => {
       setProjectImg([...projectImg, ...result.data]);
     });
 
-  
-
-       
-   
+    axios
+      .get("http://localhost:5000/projects/details/data/getDetails")
+      .then((result) => {
+        setProjectDetails(result.data);
+      });
   }, []);
+
 
 
   return (
@@ -74,40 +59,63 @@ function App() {
           <Route exact path="/projects/In_Search_of_Lost_Tune">
             <ProjectContainer
               title="In Search of Lost Tune"
-              projectImg={inSearchOf}
+              projectImg={FilterProject(projectImg, "inSearchOf")}
+              projectDetails={FilterProject(projectDetails, "inSearchOf")}
             />
           </Route>
           <Route exact path="/projects/The_Name_of_my_City">
             <ProjectContainer
               title="The Name of my City is Dust, Smoke and, Life"
-              projectImg={theNameOfCity}
+              projectImg={FilterProject(projectImg, "theNameOfCity")}
+              projectDetails={FilterProject(projectDetails, "theNameOfCity")}
             />
           </Route>
           <Route exact path="/projects/storiesFromTheSea">
             <ProjectContainer
               title="Stories From The Sea"
-              projectImg={storiesFromTheSea}
+              projectImg={FilterProject(projectImg, "storiesFromTheSea")}
+              projectDetails={FilterProject(
+                projectDetails,
+                "storiesFromTheSea"
+              )}
             />
           </Route>
           <Route exact path="/projects/Joldash">
-            <ProjectContainer title="Joldash" projectImg={Joldash} />
+            <ProjectContainer
+              title="Joldash"
+              projectImg={FilterProject(projectImg, "Joldash")}
+              projectDetails={FilterProject(projectDetails, "Joldash")}
+            />
           </Route>
           <Route exact path="/projects/Counting_the_days">
             <ProjectContainer
               title="Counting the day"
-              projectImg={countingTheDays}
+              projectImg={FilterProject(projectImg, "countingTheDays")}
+              projectDetails={FilterProject(projectDetails, "countingTheDays")}
             />
           </Route>
 
           <Route exact path="/works/sonali_bag">
-            <ProjectContainer title="Sonali Bag" projectImg={SonaliBeg} />
+            <ProjectContainer
+              title="Sonali Bag"
+              projectImg={FilterProject(projectImg, "SonaliBag")}
+              projectDetails={FilterProject(projectDetails, "SonaliBag")}
+            />
           </Route>
 
           <Route exact path="/works/portfolio">
-            <ProjectContainer title="Portfolio" projectImg={portfolio} />
+            <ProjectContainer
+              title="Portfolio"
+              projectImg={FilterProject(projectImg, "portfolio")}
+              projectDetails={FilterProject(projectDetails, "portfolio")}
+            />
           </Route>
           <Route exact path="/print">
-            <ProjectContainer title={printText} projectImg={print} />
+            <ProjectContainer
+              title={printText}
+              projectImg={FilterProject(projectImg, "print")}
+              projectDetails={FilterProject(projectDetails, "print")}
+            />
           </Route>
 
           <Route exact path="/reyad_abedin/contract">

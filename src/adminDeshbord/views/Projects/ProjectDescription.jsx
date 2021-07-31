@@ -28,6 +28,7 @@ const ProjectDescription = () => {
       const onSubmit=(data)=>{
 
         if (data.descriptionFolder !== "false") {
+             data.title=title;
             setImgFolder(true);
            
             data.id= Date.now()
@@ -42,10 +43,10 @@ const ProjectDescription = () => {
              
             )
             .then((response) => {
-               
-              Swal.fire("Good job!", "Added Successfully", "success");
               setDescription("")
               setTitle("")
+              Swal.fire("Good job!", "Added Successfully", "success");
+          
               
             })
             .catch(err=>{
@@ -62,6 +63,8 @@ const ProjectDescription = () => {
 
 
       }
+
+      console.log(title)
     
     return (
         <div className="card p-4">
@@ -81,7 +84,7 @@ const ProjectDescription = () => {
               Select Images Folder
             </option>
             <option value="inSearchOf">In Search Of</option>
-            <option value="Dhaka">Dhaka</option>
+            <option value="storiesFromTheSea">Stories From The Sea</option>
             <option value="theNameOfCity">The Name Of City</option>
             <option value="Joldash">Joldash</option>
             <option value="SonaliBeg">SonaliBeg</option>

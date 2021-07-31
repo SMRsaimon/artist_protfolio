@@ -12,7 +12,7 @@ import Footer from "../../Footer/Footer";
 
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
-const ProjectContainer = ({ projectImg, title }) => {
+const ProjectContainer = ({ projectImg, title, projectDetails }) => {
   const layoutRef = useRef();
   return (
     <>
@@ -22,7 +22,10 @@ const ProjectContainer = ({ projectImg, title }) => {
           {title?.heading ? (
             <>
               <div className="text-center print-img-container">
-                <h3 className="text-center text-Capitalize p-5 project-title"> {title.heading}</h3>
+                <h3 className="text-center text-Capitalize p-5 project-title">
+                  {" "}
+                  {title.heading}
+                </h3>
               </div>
               <p className="text-center"> {title?.text}</p>
               <p className="text-center">{title?.text2}</p>
@@ -36,10 +39,10 @@ const ProjectContainer = ({ projectImg, title }) => {
           <div className="row d-flex justify-content-center">
             <CustomGallery layoutRef={layoutRef} ui={PhotoSwipeUI_Default}>
               <ResponsiveMasonry
-                columnsCountBreakPoints={{ 350: 1,760:2, 1000:3, 1400:4 }}
+                columnsCountBreakPoints={{ 350: 1, 760: 2, 1000: 3, 1400: 4 }}
                 className="ResponsiveMasonry"
               >
-                <Masonry  >
+                <Masonry>
                   {projectImg.length > 0 ? (
                     projectImg.map((x) => (
                       <SingleProject project={x} key={x.id} />
@@ -49,16 +52,14 @@ const ProjectContainer = ({ projectImg, title }) => {
                       <h4 className="comming-soon-text text-success">
                         Comming Soon......
                       </h4>
-                     
                     </>
                   )}
                   {projectImg.length <= 5 && projectImg.length !== 0 && (
                     <>
-                      <h4 className="text-center text-success p-5">
-                      Work in Progress......
-                      </h4>
+                     
                       <div className="col-md-12 d-flex justify-content-center">
-                       
+                      Work in Progress......
+
                       </div>
                     </>
                   )}
@@ -70,6 +71,24 @@ const ProjectContainer = ({ projectImg, title }) => {
               zoomButton={false}
               ref={layoutRef}
             />
+          </div>
+          <hr />
+          <div className="row mt-5">
+            {projectDetails.length > 0 &&
+              projectDetails.map((x) => (
+                <>
+                  <div className="col-md-10 offset-md-1">
+                    {x.title && (
+                      <h3 className="text-center text-Capitalize project-title p-3">
+                        {x.title}
+                      </h3>
+                    )}
+                  </div>
+                  <div className="col-md-10 offset-md-1 projectDescription">
+                    <p> {x.description}</p>
+                  </div>
+                </>
+              ))}
           </div>
         </div>
       </div>
