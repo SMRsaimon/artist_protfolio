@@ -3,3 +3,9 @@
    
     height: 250px;
 }
+
+.editIcon svg{
+    fill:blue;
+    font-size: 20px;
+    cursor: pointer;
+}

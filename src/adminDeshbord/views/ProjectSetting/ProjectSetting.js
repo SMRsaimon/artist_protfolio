@@ -49,7 +49,7 @@ const ProjectSetting = () => {
     { name: "portfolio", title: "portfolio" },
     { name: "print", title: "print" },
   ];
-
+console.log(projectDetails)
   return (
     <>
       <PanelHeader
@@ -63,7 +63,7 @@ const ProjectSetting = () => {
       <div className="content">
         {componentsData.map((x) => (
           <>
-            <div className="row ">
+            <div key={x.id} className="row ">
               <h3 className="text-center  text-capitalize project-title py-5">
                 {x.name}
               </h3>
@@ -83,8 +83,8 @@ const ProjectSetting = () => {
                   </>
                 }
               >
-                <UpdateProjectDetails
-                  projectDetails={FilterProject(projectDetails, x.title)}
+                <UpdateProjects
+                  projectImg={FilterProject(projectImg, x.title)}
                   setDetailsReload={setDetailsReload}
                 />
               </Suspense>
@@ -94,7 +94,7 @@ const ProjectSetting = () => {
 
         <hr />
 
-        {/* DProject Details components */}
+        {/* Project Details components */}
         <div className="container">
           <h2 className="text-center  text-capitalize project-title py-5">
             Project Details
@@ -102,7 +102,7 @@ const ProjectSetting = () => {
 
           {componentsData.map((x) => (
             <>
-              <div className="row ">
+              <div  key={x.id}  className="row ">
                 <h3 className="text-center  text-capitalize project-title py-5">
                   {x.name}
                 </h3>
@@ -124,8 +124,8 @@ const ProjectSetting = () => {
                     </>
                   }
                 >
-                  <UpdateProjects
-                    projectImg={FilterProject(projectImg, x.title)}
+                  <UpdateProjectDetails
+                    projectDetails={FilterProject(projectDetails, x.title)}
                     setImgReload={setImgReload}
                   />
                 </Suspense>

@@ -70,7 +70,7 @@ const ProjectDescription = () => {
             <option value="storiesFromTheSea">Stories From The Sea</option>
             <option value="theNameOfCity">The Name Of City</option>
             <option value="Joldash">Joldash</option>
-            <option value="SonaliBeg">SonaliBeg</option>
+            <option value="SonaliBag">SonaliBag</option>
             <option value="countingTheDays">Counting The Days</option>
             <option value="portfolio">Portfolio</option>
             <option value="print">Print</option>
