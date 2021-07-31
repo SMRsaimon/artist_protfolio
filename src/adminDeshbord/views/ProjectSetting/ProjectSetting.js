@@ -85,8 +85,8 @@ console.log(projectDetails)
               >
                 <UpdateProjects
                   projectImg={FilterProject(projectImg, x.title)}
-                  setDetailsReload={setDetailsReload}
-                />
+                  setImgReload={setImgReload}
+                /> 
               </Suspense>
             </div>
           </>
@@ -126,7 +126,8 @@ console.log(projectDetails)
                 >
                   <UpdateProjectDetails
                     projectDetails={FilterProject(projectDetails, x.title)}
-                    setImgReload={setImgReload}
+                   
+                    setDetailsReload={setDetailsReload}
                   />
                 </Suspense>
               </div>
