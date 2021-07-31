@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import Swal from "sweetalert2";
 
-const UpdateProjects = ({ imgData, setImgReload }) => {
+const UpdateProjects = ({ projectImg, setImgReload }) => {
   // image update heandelar
   const hendelImagesUpdate = async (id) => {
     let formData = new FormData();
@@ -81,9 +81,18 @@ const UpdateProjects = ({ imgData, setImgReload }) => {
     });
   };
   return (
-    <div className="col-md-3">
+    <>
+    {
+       projectImg.length>0 && projectImg.map(imgData=>
+       <>
+       <div className="col-md-3">
       <div className="card shadow-lg p-4 mb-3 admin-project-images-container">
+     
+
+     
         <img src={imgData?.img} alt="" />
+       
+       
         <button
           onClick={() => hendelImagesUpdate(imgData.id)}
           className="btn btn-outline-success mb-2 mt-1"
@@ -98,7 +107,15 @@ const UpdateProjects = ({ imgData, setImgReload }) => {
         </button>
       </div>
     </div>
+       
+       </>
+       )
+      
+    }
+    </>
   );
 };
 
 export default UpdateProjects;
+
+

@@ -56,10 +56,8 @@ const ProjectContainer = ({ projectImg, title, projectDetails }) => {
                   )}
                   {projectImg.length <= 5 && projectImg.length !== 0 && (
                     <>
-                     
                       <div className="col-md-12 d-flex justify-content-center">
-                      Work in Progress......
-
+                        Work in Progress......
                       </div>
                     </>
                   )}
