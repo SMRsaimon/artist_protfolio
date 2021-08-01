@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./About.css";
 import Sidebar from "../Navigation/Sidebar";
 import profilePic from "../../resource/img/bio-img/BioPhoto.jpg";
 import SocialLink from "../SocialLink/SocialLink";
 import Footer from "../Footer/Footer";
+import { userContext } from "../../App";
 
 
 const About = () => {
+  const {personalInfo}=useContext(userContext)
  
 
   const bioContent = [
@@ -57,12 +59,12 @@ const About = () => {
 
         <div className="container pt-5">
         <h1 className="text-center pb-3 text-md-left  home-heading text-capitalize">
-                Reyad Abedin
+               {personalInfo?.name && personalInfo.name}
               </h1>
           <div className="row">
             <div className="col-md-6 d-flex justify-content-center">
               <div className="about-img-container py-3 mb-5 ">
-                <img src={profilePic} class="img-thumbnail" alt="..."></img>
+                <img src={personalInfo?.profileImg} class="img-thumbnail" alt="..."></img>
                 <div className="d-flex justify-content-center">
                    <SocialLink/>
                 </div>
@@ -76,7 +78,7 @@ const About = () => {
                       .slice(0, 3)
                       .map((x, index) => <p key={index}>{x.P}</p>)}
               </div>
-              <a  className="btn btn-outline-light p-2 download-resume" target="_blanck" href="#"> Download Resume </a>
+              <a  className="btn btn-outline-light p-2 download-resume" target="_blanck" href={personalInfo?.resume}> Download Resume </a>
             </div>
 
             <div className="col-md-6">

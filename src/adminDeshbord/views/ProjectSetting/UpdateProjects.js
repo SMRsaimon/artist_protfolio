@@ -48,7 +48,15 @@ const UpdateProjects = ({ projectImg, setImgReload }) => {
             setImgReload((imgReload) => !imgReload);
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Uploaded failed",
+            footer: "<p> Server error Try again later!!</p>",
+          });
+        });
     }
   };
 

@@ -16,28 +16,36 @@ const AboutForm = () => {
 
   const handleChange = () => {
     setValue(!value);
+    setTitle("");
   };
 
   const onSubmit = (data) => {
-    let newData = {};
-
-    data.id = Date.now();
     if (data.heading === undefined) {
-      newData.paraGraph = data.paraGraph;
-      newData.id = data.id;
-    } else {
-      newData.heading = data.heading;
-      newData.paraGraph = data.paraGraph;
-      newData.id = data.id;
+      data.heading = "";
     }
 
     axios
-      .post("http://localhost:8000/api/", newData)
-      .then((res) => console.log(res.data));
-
-    Swal.fire("Good job!", "Added Successfully", "success");
-    setTitle("");
-    setDescription("");
+      .post("http://localhost:5000/bioInfo/api/bioInformation/insert", data, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((res) => {
+        Swal.fire("Good job!", "Added Successfully", "success");
+        setTitle("");
+        setDescription("");
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+          footer: '<p className="text-danger">Please Try again</p>',
+        });
+        setTitle("");
+        setDescription("");
+      });
   };
 
   return (

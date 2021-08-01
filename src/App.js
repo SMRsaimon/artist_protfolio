@@ -22,6 +22,7 @@ function App() {
   const [projectImg, setProjectImg] = useState(projectData);
   const [projectDetails, setProjectDetails] = useState([]);
   const [loginUser, setLoginUser] = useState({});
+  const [personalInfo, setPersonalInfo] = useState({});
 
   // Filter function for filter project images data and details
 
@@ -47,12 +48,17 @@ function App() {
       .then((result) => {
         setProjectDetails(result.data);
       });
+      axios
+      .get("http://localhost:5000/adminInformation/api/contractInformation/get")
+      .then((result) => {
+        setPersonalInfo(result.data[0]);
+      });
   }, []);
 
 
 
   return (
-    <userContext.Provider value={{ loginUser, setLoginUser }}>
+    <userContext.Provider value={{ loginUser, setLoginUser,personalInfo }}>
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />

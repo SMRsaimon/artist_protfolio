@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ImWhatsapp } from "react-icons/im";
+import { userContext } from "../../App";
 
 const ContractInfo = () => {
+  const {personalInfo}=useContext(userContext)
   const infoData = [
-    { title: "Phone", info: "+91 9876 543 2198" },
-    { title: "Email", info: "smrsaimon960@gmail.com" },
-    { title: "Whats App", info: "+91 9876 543 2198" },
+    { title: "Phone", info: personalInfo?.phoneNumber },
+    { title: "Email", info: personalInfo?.email },
+    { title: "Whats App", info: personalInfo?.whatsAppNumber },
   ];
   return (
     <div className="contact_info pb-3">

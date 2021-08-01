@@ -1,24 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./SocialLink.css"
 import {
     IoLogoFacebook,
     IoLogoLinkedin,
     IoLogoInstagram,
   } from "react-icons/io";
+import { userContext } from "../../App";
 
 
 const SocialLink = () => {
+  const {personalInfo}=useContext(userContext)
+
   const socialLink = [
     {
-      link: "https://www.facebook.com/ReyadAbedin1",
+      link:personalInfo?.facebook ,
       icon: <IoLogoFacebook />,
     },
     {
-      link: "https://www.linkedin.com/in/reyad-abedin-3321647b/",
+      link: personalInfo?.linkedIn,
       icon: <IoLogoLinkedin />,
     },
     {
-      link: "https://www.instagram.com/reyad_abedin/",
+      link:  personalInfo?.instagram,
       icon: <IoLogoInstagram />,
     },
   ];

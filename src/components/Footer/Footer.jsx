@@ -1,12 +1,13 @@
 import axios from "axios";
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { userContext } from "../../App";
 import SocialLink from "../SocialLink/SocialLink";
 import "./Footer.css";
 
 const Footer = () => {
-
+  const {personalInfo}=useContext(userContext)
   const [img,setImg]=useState([])
 
 
@@ -48,7 +49,7 @@ const Footer = () => {
           </div>
           <div className="col-md-12 d-flex justify-content-center">
               <div className="copy-right-text">
-                     <p> Copyright @ {new Date().getFullYear()} All rights reserved by Reyad Abedin
+                     <p> Copyright @ {new Date().getFullYear()} All rights reserved by {personalInfo?.name}
 .
                      Developed by  <a href="https://www.mensadigiworld.com">Mensa Digiworld</a> </p>
               </div>
