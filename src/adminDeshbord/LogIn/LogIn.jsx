@@ -15,8 +15,7 @@ const LogIn = () => {
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
+   
   } = useForm();
   const history = useHistory();
   const location = useLocation();

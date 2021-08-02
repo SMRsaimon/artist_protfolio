@@ -8,7 +8,6 @@ import { Toast } from "../Deshboard/Notification";
 const UpdateAboutDetails = ({ aboutDetails, setDetailsReload }) => {
   const hendelDetailsUpdate = async (id) => {
 
-    const updateData={}
     const { value: formValues } = await Swal.fire({
       title: "About Details",
       html:

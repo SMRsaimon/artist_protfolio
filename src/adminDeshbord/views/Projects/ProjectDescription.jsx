@@ -12,7 +12,7 @@ const ProjectDescription = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+   
   } = useForm();
 
   //   hendel file selected or not

@@ -16,7 +16,7 @@ function Admin(props) {
 
 
   const location = useLocation();
-  const [backgroundColor, setBackgroundColor] = React.useState("blue");
+  const [backgroundColor] = React.useState("blue");
   const mainPanel = React.useRef();
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
@@ -35,9 +35,7 @@ function Admin(props) {
     document.scrollingElement.scrollTop = 0;
     mainPanel.current.scrollTop = 0;
   }, [location]);
-  const handleColorClick = (color) => {
-    setBackgroundColor(color);
-  };
+ 
   return (
     <div className="wrapper">
       <Sidebar {...props} routes={routes} backgroundColor={backgroundColor} />

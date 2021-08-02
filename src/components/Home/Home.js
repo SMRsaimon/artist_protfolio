@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { userContext } from "../../App";
 import Footer from "../Footer/Footer";
 import Sidebar from "../Navigation/Sidebar";
-import SocialLink from "../SocialLink/SocialLink";
+
 import "./Home.css";
 
 const Home = () => {

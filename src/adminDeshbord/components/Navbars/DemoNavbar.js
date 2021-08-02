@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import {  useLocation } from "react-router-dom";
 
 import {
@@ -22,10 +22,10 @@ function DemoNavbar(props) {
   const location = useLocation();
 
   const {loginUser,personalInfo}=useContext(userContext)
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [dropdownOpen, setDropdownOpen] = React.useState(false);
-  const [color, setColor] = React.useState("transparent");
-  const sidebarToggle = React.useRef();
+  const [isOpen, setIsOpen] =useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [color, setColor] = useState("transparent");
+  const sidebarToggle = useRef();
   const toggle = () => {
     if (isOpen) {
       setColor("transparent");

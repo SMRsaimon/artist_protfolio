@@ -16,7 +16,7 @@ const ProjectImage = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    
   } = useForm();
 
   const hendelImageUploaded = (e) => {
