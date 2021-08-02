@@ -7,6 +7,7 @@ import { IoQrCodeSharp } from "react-icons/io5";
 import { FcAbout } from "react-icons/fc";
 import { AiFillProject } from "react-icons/ai";
 import { GrSettingsOption } from "react-icons/gr";
+import AboutSetting from "./views/AboutSetting/AboutSetting";
 
 var dashRoutes = [
   {
@@ -24,6 +25,14 @@ var dashRoutes = [
     component: About,
     layout: "/admin",
   },
+  {
+    path: "/aboutSetting",
+    name: "About Setting",
+    icon: <GrSettingsOption/>,
+    component: AboutSetting,
+    layout: "/admin",
+  },
+
 
  
 

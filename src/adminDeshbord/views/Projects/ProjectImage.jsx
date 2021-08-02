@@ -120,6 +120,7 @@ const ProjectImage = () => {
         </div>
         <div className="mb-3">
           <p>Images Size <small className="text-primary">(optional)</small></p>
+          <small className="text-secondary pb-1">[Default Size Horizontal]</small>
           <div className="pb-3">
           <input
             class="form-check-input"

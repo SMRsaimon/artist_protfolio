@@ -27,7 +27,7 @@ const Projects = () => {
 
 
           <div className="col-md-8 offset-md-2">
-              <h2 className="text-primary brand-text">About Project Details</h2>
+              <h2 className=" brand-text">About Project Details</h2>
           
           </div>
           <div className="col-md-8 offset-md-2">

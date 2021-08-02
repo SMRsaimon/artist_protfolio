@@ -49,7 +49,7 @@ const ProjectSetting = () => {
     { name: "portfolio", title: "portfolio" },
     { name: "print", title: "print" },
   ];
-console.log(projectDetails)
+
   return (
     <>
       <PanelHeader
@@ -63,15 +63,15 @@ console.log(projectDetails)
       <div className="content">
         {componentsData.map((x) => (
           <>
-            <div key={x.id} className="row ">
-              <h3 className="text-center  text-capitalize project-title py-5">
+            <div key={x.id} className="row justify-content-center">
+              <h3 className="text-center  text-capitalize project-title py-5 ">
                 {x.name}
               </h3>
               <Suspense
                 fallback={
                   <>
                     <p className="text-center">Please wait. Searching......</p>
-                    <div className="col-md-12 d-flex justify-content-center">
+                    <div className="col-md-12 d-flex justify-content-center ">
                       <Loader
                         type="ThreeDots"
                         color="#00BFFF"

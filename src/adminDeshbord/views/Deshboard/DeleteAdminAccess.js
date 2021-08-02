@@ -70,7 +70,7 @@ const DeleteAdminAccess = () => {
 
   return (
     <div>
-      <h4 className="text-center text-primary my-2">Admin Email</h4>
+      <h4 className="text-center brand-text my-2">Admin Email</h4>
       <ol className="list-group list-group-numbered">
         {adminEmail.length > 0 &&
           adminEmail.map((x) => {

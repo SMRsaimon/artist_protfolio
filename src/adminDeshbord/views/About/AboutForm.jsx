@@ -51,7 +51,7 @@ const AboutForm = () => {
   return (
     <>
       <div className="card p-4">
-        <h3 className="text-primary  text-center">About Myself </h3>
+        <h3 className="brand-text  text-center">About Myself </h3>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-1">
             <label className="form-label">

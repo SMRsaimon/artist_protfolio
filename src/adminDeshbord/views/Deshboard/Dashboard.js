@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Dashboard.css";
 import PanelHeader from "../../components/PanelHeader/PanelHeader.js";
 import CreateAdminAccount from "./CreateAdminAccount";
 import DeleteAdminAccess from "./DeleteAdminAccess";
 import { createContext } from "react";
 import { useState } from "react";
+import { userContext } from "../../../App";
 
 export const loadingContext=createContext()
 function Dashboard() {
 
 const [adminReload, setAdminReload]=useState(false)
+const {personalInfo}=useContext(userContext)
 
 
   return (
@@ -26,8 +28,8 @@ const [adminReload, setAdminReload]=useState(false)
         <div className="row">
           <div className="col-md-12">
             <div className="card p-3">
-              <h3 className=" text-center">
-                H! Reyad Abedin Welcome to Admin Deshboard
+              <h3 className=" text-center brand-text">
+                H! {" "}{personalInfo?.name} Welcome to Admin Deshboard
               </h3>
             </div>
           </div>

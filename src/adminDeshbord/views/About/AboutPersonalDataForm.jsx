@@ -121,7 +121,7 @@ const AboutPersonalDataForm = () => {
 
   return (
     <div className="card p-4 mt-4">
-      <h3 className="text-primary  text-center">Personal Information </h3>
+      <h3 className="brand-text  text-center">Personal Information </h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-3">
           <label className="form-label" for="exampleFormControlInput1">

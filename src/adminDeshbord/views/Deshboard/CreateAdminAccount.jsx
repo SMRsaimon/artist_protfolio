@@ -40,7 +40,7 @@ const CreateAdminAccount = () => {
 
   return (
     <div>
-      <h4 className="text-center text-primary my-4">Creating Admin Account</h4>
+      <h4 className="text-center brand-text my-4">Creating Admin Account</h4>
 
       {error && (
         <p className="text-center text-danger">

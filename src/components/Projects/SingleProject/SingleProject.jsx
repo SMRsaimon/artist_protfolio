@@ -2,8 +2,6 @@ import React from "react";
 import "./SingleProject.css";
 import { Item } from "react-photoswipe-gallery";
 const SingleProject = ({ project }) => {
-
-
   let width = 1000;
   let height = 700;
 
@@ -11,12 +9,11 @@ const SingleProject = ({ project }) => {
     width = 900;
     height = 900;
   }
-  if(project?.vertical === "true" && project?.squire === "false"){
+  if (project?.vertical === "true" && project?.squire === "false") {
     width = 900;
     height = 1200;
-
   }
-
+  
   return (
     <div className="col-xl-3 col-lg-4 col-md-6  ">
       <div className="img-container mb-3">

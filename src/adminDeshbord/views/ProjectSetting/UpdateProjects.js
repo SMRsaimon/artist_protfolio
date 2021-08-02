@@ -93,7 +93,7 @@ const UpdateProjects = ({ projectImg, setImgReload }) => {
     {
        projectImg.length>0 && projectImg.map(imgData=>
        <>
-       <div className="col-md-3">
+       <div className="col-xl-2 col-lg-3  col-md-4 col-6 ">
       <div className="card shadow-lg p-4 mb-3 admin-project-images-container">
      
 

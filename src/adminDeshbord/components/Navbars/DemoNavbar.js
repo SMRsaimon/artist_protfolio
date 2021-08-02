@@ -1,6 +1,6 @@
 import React from "react";
 import {  useLocation } from "react-router-dom";
-import BioPhoto from "../../../resource/img/bio-img/BioPhoto.jpg"
+
 import {
   Collapse,
   Navbar,
@@ -18,9 +18,10 @@ import { useContext } from "react";
 import { userContext } from "../../../App";
 
 function DemoNavbar(props) {
+  
   const location = useLocation();
 
-  const {loginUser}=useContext(userContext)
+  const {loginUser,personalInfo}=useContext(userContext)
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const [color, setColor] = React.useState("transparent");
@@ -127,7 +128,7 @@ function DemoNavbar(props) {
          
         
             <NavItem>
-               <img style={{width:"50px", height:"50px" , borderRadius:"50%"}} src={BioPhoto}  alt="" />
+               <img style={{width:"50px", height:"50px" , borderRadius:"50%"}}  src={personalInfo?.profileImg} alt="img" />
             </NavItem>
             <NavItem>
               <span className="ms-3" >{loginUser?.email||logInUserData()}</span>
