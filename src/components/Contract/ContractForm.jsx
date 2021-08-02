@@ -21,7 +21,7 @@ const ContractForm = () => {
   `;
  
   const onSubmit = (data) => {
-    (data)
+   
     setLoading(true)
     axios
       .post("http://localhost:5000/sendEmail/emailsend/data/post", data)

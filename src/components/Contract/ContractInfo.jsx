@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ImWhatsapp } from "react-icons/im";
+
 import { userContext } from "../../App";
 
 const ContractInfo = () => {

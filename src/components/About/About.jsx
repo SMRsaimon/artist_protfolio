@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./About.css";
 import Sidebar from "../Navigation/Sidebar";
-import profilePic from "../../resource/img/bio-img/BioPhoto.jpg";
+
 import SocialLink from "../SocialLink/SocialLink";
 import Footer from "../Footer/Footer";
 import { userContext } from "../../App";
