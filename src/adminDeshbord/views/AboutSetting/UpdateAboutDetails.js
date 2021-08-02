@@ -50,30 +50,30 @@ const UpdateAboutDetails = ({ aboutDetails, setDetailsReload }) => {
   };
 
   const hendelDetailsDelete = (id) => {
-    // axios
-    //   .delete(
-    //     `http://localhost:5000/projects/details/description/delete/${id}`,
-    //     {
-    //       headers: {
-    //         Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //       },
-    //     }
-    //   )
-    //   .then((response) => {
-    //     Toast.fire({
-    //       icon: "success",
-    //       title: "Delete successfully Done",
-    //     });
-    //     setDetailsReload((value) => !value);
-    //   })
-    //   .catch((err) => {
-    //     Swal.fire({
-    //       icon: "error",
-    //       title: "Oops...",
-    //       text: "Uploaded failed",
-    //       footer: "<p> Server error Try again later!!</p>",
-    //     });
-    //   });
+    axios
+      .delete(
+        `http://localhost:5000/bioInfo/api/bioInformation/delete/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+      .then((response) => {
+        Toast.fire({
+          icon: "success",
+          title: "Delete successfully Done",
+        });
+        setDetailsReload((value) => !value);
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Uploaded failed",
+          footer: "<p> Server error Try again later!!</p>",
+        });
+      });
   };
   return (
     <>
