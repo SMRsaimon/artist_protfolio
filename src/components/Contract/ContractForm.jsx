@@ -1,9 +1,35 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-
+import { Toast } from "../../adminDeshbord/views/Deshboard/Notification";
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 const ContractForm = () => {
+  let [loading, setLoading] = useState(false);
+  let [color, setColor] = useState("red");
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+    color:red;
+  `;
+ 
+  const onSubmit = (data) => {
+    setLoading(true)
+    axios
+      .post("http://localhost:5000/sendEmail/emailsend/data/post", data)
+      .then((result) => {
+        setLoading(false)
+        Toast.fire({
+          icon: "success",
+          title: "SuccessFully send your Message",
+        });
+      })
+      .catch((err) => {
+        setLoading(false)
+      });
+  };
 
   return (
     <div className="contact_form_container pb-5">
@@ -44,9 +70,20 @@ const ContractForm = () => {
           ></textarea>
         </div>
         <div className="contact_form_button">
-          <button type="submit" className="button contact_submit_button">
+          <button
+           
+            type="submit"
+            className="button contact_submit_button"
+          >
             Send Message
           </button>
+
+          <BeatLoader
+            color={color}
+            loading={loading}
+            css={override}
+            size={50}
+          />
         </div>
       </form>
     </div>
