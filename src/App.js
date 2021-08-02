@@ -5,7 +5,6 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import ProjectContainer from "./components/Projects/ProjectContainer/ProjectContainer";
-import { projectData } from "./resource/projectData";
 import { useEffect, useState } from "react";
 import Contract from "./components/Contract/Contract";
 import About from "./components/About/About";
@@ -19,7 +18,7 @@ import axios from "axios";
 export const userContext = createContext();
 
 function App() {
-  const [projectImg, setProjectImg] = useState(projectData);
+  const [projectImg, setProjectImg] = useState([]);
   const [projectDetails, setProjectDetails] = useState([]);
   const [loginUser, setLoginUser] = useState({});
   const [personalInfo, setPersonalInfo] = useState({});
@@ -40,7 +39,7 @@ function App() {
 
   useEffect(() => {
     axios.get("http://localhost:5000/projects/data/get").then((result) => {
-      setProjectImg([...projectImg, ...result.data]);
+      setProjectImg(result.data);
     });
 
     axios
@@ -56,7 +55,7 @@ function App() {
   }, []);
 
 
-
+console.log()
   return (
     <userContext.Provider value={{ loginUser, setLoginUser,personalInfo }}>
       <Router>
@@ -71,7 +70,8 @@ function App() {
           </Route>
           <Route exact path="/projects/The_Name_of_my_City">
             <ProjectContainer
-              title="The Name of my City is Dust, Smoke and, Life"
+          title="The Name of my City is Dust, Smoke and, Life"
+              
               projectImg={FilterProject(projectImg, "theNameOfCity")}
               projectDetails={FilterProject(projectDetails, "theNameOfCity")}
             />
@@ -95,7 +95,7 @@ function App() {
           </Route>
           <Route exact path="/projects/Counting_the_days">
             <ProjectContainer
-              title="Counting the day"
+              title="Counting the days"
               projectImg={FilterProject(projectImg, "countingTheDays")}
               projectDetails={FilterProject(projectDetails, "countingTheDays")}
             />

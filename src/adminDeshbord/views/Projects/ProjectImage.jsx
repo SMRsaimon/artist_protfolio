@@ -74,7 +74,7 @@ const ProjectImage = () => {
             if (response.data) {
               setImages([]);
               Swal.fire("Good job!", "Added Successfully", "success");
-              console.log(response.data);
+              
             }
           })
           .catch((err) => {

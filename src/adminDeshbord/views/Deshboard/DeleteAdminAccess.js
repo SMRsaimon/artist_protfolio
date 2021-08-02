@@ -23,7 +23,7 @@ const DeleteAdminAccess = () => {
         setAdminEmail(result.data);
       })
       .catch((err) => {
-        console.log(err);
+        
       });
   }, [deleteAdmin, adminReload]);
 
@@ -51,7 +51,12 @@ const DeleteAdminAccess = () => {
               setDeleteAdmin(!deleteAdmin);
             })
             .catch((err) => {
-              console.log(err);
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+                footer: `<p  href="">Please try again!!!!</p>`
+              })
             });
         }
       });

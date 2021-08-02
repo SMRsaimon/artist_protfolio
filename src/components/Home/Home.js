@@ -17,7 +17,7 @@ const Home = () => {
           <div className="row">
             <div className="col-md-12">
               <h1 className="text-center home-heading text-capitalize">
-              {personalInfo.name && personalInfo.name}
+              { personalInfo?.name}
               </h1>
             </div>
             <div className="col-md-12">

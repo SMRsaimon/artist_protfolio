@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useContext } from "react";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 import { loadingContext } from "./Dashboard";
 import { Toast } from "./Notification";
@@ -34,7 +35,12 @@ const CreateAdminAccount = () => {
       })
       .catch((err) => {
         setError(true);
-        console.log(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: `<p  href="">Please try again!!!!</p>`
+        })
       });
   };
 

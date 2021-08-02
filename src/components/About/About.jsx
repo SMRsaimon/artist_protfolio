@@ -19,7 +19,7 @@ const About = () => {
         setBioInfo(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        
       });
   }, []);
 

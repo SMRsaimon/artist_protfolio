@@ -36,7 +36,14 @@ const UpdateProjectDetails = ({ projectDetails, setDetailsReload }) => {
           });
           setDetailsReload((value) => !value);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+            footer: `<p  href="">Please try again!!!!</p>`,
+          });
+        });
     }
   };
 
