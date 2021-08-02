@@ -6,7 +6,7 @@ import axios from "axios";
 import { Toast } from "../Deshboard/Notification";
 
 const UpdateAboutDetails = ({ aboutDetails, setDetailsReload }) => {
-  const hendelDetailsUpdate = async (data) => {
+  const hendelDetailsUpdate = async (id) => {
 
     const updateData={}
     const { value: formValues } = await Swal.fire({
@@ -22,31 +22,31 @@ const UpdateAboutDetails = ({ aboutDetails, setDetailsReload }) => {
         };
       },
     });
-    console.log(formValues)
+ 
 
  
   
 
-    // if (text) {
-    //   axios
-    //     .patch(
-    //       `http://localhost:5000/projects/details/description/update/${data.id}`,
-    //       { text },
-    //       {
-    //         headers: {
-    //           Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //         },
-    //       }
-    //     )
-    //     .then((response) => {
-    //       Toast.fire({
-    //         icon: "success",
-    //         title: "Update successfully",
-    //       });
-    //       setDetailsReload((value) => !value);
-    //     })
-    //     .catch((err) => console.log(err));
-    // }
+    if (formValues) {
+      axios
+        .patch(
+          `http://localhost:5000/bioInfo/api/bioInformation/update/${id}`,
+           formValues ,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        )
+        .then((response) => {
+          Toast.fire({
+            icon: "success",
+            title: "Update successfully",
+          });
+          setDetailsReload((value) => !value);
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   const hendelDetailsDelete = (id) => {
@@ -101,7 +101,7 @@ const UpdateAboutDetails = ({ aboutDetails, setDetailsReload }) => {
                   </div>
 
                   <span
-                    onClick={() => hendelDetailsUpdate(x)}
+                    onClick={() => hendelDetailsUpdate(x.id)}
                     className="badge editIcon"
                   >
                     <FaEdit />
