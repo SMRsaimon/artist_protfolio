@@ -8,11 +8,8 @@ import Swal from "sweetalert2";
 const ContractForm = () => {
   let [loading, setLoading] = useState(false);
   let [color, setColor] = useState("red");
-  const [name,setName]=useState("")
-  const [email,setEmail]=useState("")
-  const [phone,setPhone]=useState("")
-  const [message,setMessage]=useState("")
-  const { register, handleSubmit } = useForm();
+ 
+  const { register, handleSubmit,reset } = useForm();
   const override = css`
     display: block;
     margin: 0 auto;
@@ -31,10 +28,7 @@ const ContractForm = () => {
           icon: "success",
           title: "SuccessFully send your Message",
         });
-        setName("")
-        setEmail("")
-        setPhone("")
-        setMessage("")
+        reset()
       })
       .catch((err) => {
         setLoading(false)
@@ -44,10 +38,8 @@ const ContractForm = () => {
           text: 'Something went wrong!',
           footer: `<p  href="">Please try again!!!!</p>`
         })
-        setName("")
-        setEmail("")
-        setPhone("")
-        setMessage("")
+       
+        
       });
   };
 
@@ -63,8 +55,7 @@ const ContractForm = () => {
             className="contact_form_name input_field"
             placeholder="Your Name"
             {...register("name", { required: true, maxLength: 80 })}
-            value={name}
-            onChange={(e)=>setName(e.target.value)}
+           
           />
 
           <input
@@ -73,8 +64,7 @@ const ContractForm = () => {
             className="contact_form_email input_field"
             placeholder="Your Email"
             {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
-            value={email}
-            onChange={(e)=>setEmail(e.target.value)}
+           
           />
 
           <input
@@ -83,8 +73,7 @@ const ContractForm = () => {
             className="contact_form_phone input_field"
             placeholder="Your Mobile number"
             {...register("number", { maxLength: 12 })}
-            value={phone}
-            onChange={(e)=>setPhone(e.target.value)}
+           
           />
         </div>
         <div className="contact_form_text">
@@ -94,8 +83,7 @@ const ContractForm = () => {
             rows="4"
             placeholder="Message"
             {...register("message", { required: true })}
-            value={message}
-            onChange={(e)=>setMessage(e.target.value)}
+           
           ></textarea>
         </div>
         <div className="contact_form_button">
